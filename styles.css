@@ -931,6 +931,49 @@ body {
     font-weight: 500;
 }
 
+/* Call to Action Section */
+.cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cta" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="%23e74c3c" opacity="0.1"/><path d="M 0 25 L 50 25 M 25 0 L 25 50" stroke="%23e74c3c" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23cta)"/></svg>'),
+        radial-gradient(circle at 50% 50%, rgba(231, 76, 60, 0.1) 0%, transparent 70%);
+    opacity: 1;
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    min-width: 200px;
+}
+
 /* Contact Section */
 .contact {
     padding: 5rem 0;
