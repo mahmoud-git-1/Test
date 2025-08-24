@@ -82,6 +82,30 @@ if (statsContainer) {
     statsObserver.observe(statsContainer);
 }
 
+// Category filtering functionality
+const filterButtons = document.querySelectorAll('.filter-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const category = button.getAttribute('data-category');
+        
+        productCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.5s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
 // Product card interactions
 document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('mouseenter', function() {

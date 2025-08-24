@@ -65,11 +65,107 @@
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
-            <h2 class="section-title">Featured Graphics Cards</h2>
+            <h2 class="section-title">Premium Graphics Cards Collection</h2>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All Cards</button>
+                <button class="filter-btn" data-category="rdna4">AMD RDNA4</button>
+                <button class="filter-btn" data-category="rtx">NVIDIA RTX</button>
+                <button class="filter-btn" data-category="professional">Professional</button>
+            </div>
             <div class="products-grid">
-                <div class="product-card" data-category="gaming">
+                <!-- AMD RDNA4 Series -->
+                <div class="product-card" data-category="rdna4">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=RTX+4090" alt="RTX 4090">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop&crop=center" alt="AMD RX 8000 XTX">
+                        <div class="product-overlay">
+                            <button class="btn-overlay">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>AMD RX 8000 XTX</h3>
+                        <p class="product-description">Next-gen RDNA4 flagship with 32GB GDDR7 memory</p>
+                        <div class="product-specs">
+                            <span class="spec">32GB VRAM</span>
+                            <span class="spec">FSR 4.0</span>
+                            <span class="spec">Ray Tracing</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$1,299</span>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="rdna4">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center" alt="AMD RX 8000 XT">
+                        <div class="product-overlay">
+                            <button class="btn-overlay">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>AMD RX 8000 XT</h3>
+                        <p class="product-description">High-performance RDNA4 gaming with 24GB GDDR7</p>
+                        <div class="product-specs">
+                            <span class="spec">24GB VRAM</span>
+                            <span class="spec">FSR 4.0</span>
+                            <span class="spec">Ray Tracing</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$999</span>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="rdna4">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop&crop=center" alt="AMD RX 8000 Pro">
+                        <div class="product-overlay">
+                            <button class="btn-overlay">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>AMD RX 8000 Pro</h3>
+                        <p class="product-description">Balanced performance RDNA4 with 20GB GDDR7</p>
+                        <div class="product-specs">
+                            <span class="spec">20GB VRAM</span>
+                            <span class="spec">FSR 4.0</span>
+                            <span class="spec">Ray Tracing</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$799</span>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="rdna4">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center" alt="AMD RX 8000">
+                        <div class="product-overlay">
+                            <button class="btn-overlay">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>AMD RX 8000</h3>
+                        <p class="product-description">Entry-level RDNA4 with 16GB GDDR7 memory</p>
+                        <div class="product-specs">
+                            <span class="spec">16GB VRAM</span>
+                            <span class="spec">FSR 4.0</span>
+                            <span class="spec">Ray Tracing</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$599</span>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NVIDIA RTX Series -->
+                <div class="product-card" data-category="rtx">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop&crop=center" alt="RTX 4090">
                         <div class="product-overlay">
                             <button class="btn-overlay">Quick View</button>
                         </div>
@@ -89,9 +185,9 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="gaming">
+                <div class="product-card" data-category="rtx">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=RTX+4080" alt="RTX 4080">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center" alt="RTX 4080">
                         <div class="product-overlay">
                             <button class="btn-overlay">Quick View</button>
                         </div>
@@ -111,9 +207,10 @@
                     </div>
                 </div>
 
+                <!-- Professional Series -->
                 <div class="product-card" data-category="professional">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=RTX+A5000" alt="RTX A5000">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop&crop=center" alt="RTX A5000">
                         <div class="product-overlay">
                             <button class="btn-overlay">Quick View</button>
                         </div>
@@ -133,9 +230,10 @@
                     </div>
                 </div>
 
+                <!-- Previous Gen AMD -->
                 <div class="product-card" data-category="gaming">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=RX+7900+XTX" alt="RX 7900 XTX">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center" alt="RX 7900 XTX">
                         <div class="product-overlay">
                             <button class="btn-overlay">Quick View</button>
                         </div>
