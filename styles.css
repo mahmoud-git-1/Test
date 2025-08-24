@@ -184,18 +184,18 @@ body {
 }
 
 .btn-primary {
-    background: #00d4ff;
+    background: #e74c3c;
     color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.2);
     border-radius: 6px;
     padding: 8px 16px;
     font-size: 0.9rem;
 }
 
 .btn-primary:hover {
-    background: #0099cc;
+    background: #c0392b;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
 }
 
 .btn-secondary {
@@ -882,7 +882,7 @@ body {
 }
 
 .product-card:hover::after {
-    border-color: #00d4ff;
+    border-color: #e74c3c;
 }
 
 /* Stock indicator */
@@ -891,7 +891,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #27ae60;
+    background: #e74c3c;
     color: white;
     padding: 4px 8px;
     border-radius: 4px;
