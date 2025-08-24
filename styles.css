@@ -69,7 +69,9 @@ body {
     background-clip: text;
     animation: rgbShift 3s ease-in-out infinite;
     font-weight: 700;
+    font-size: 2.5rem;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
 }
 
 .nav-menu {
@@ -398,6 +400,52 @@ body {
     }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-1deg);
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 30px rgba(231, 76, 60, 0.6), 0 0 40px rgba(231, 76, 60, 0.3);
+    }
+}
+
+@keyframes titleLine {
+    0%, 100% {
+        width: 60px;
+        opacity: 1;
+    }
+    50% {
+        width: 80px;
+        opacity: 0.8;
+    }
+}
+
 @keyframes fadeIn {
     from { 
         opacity: 0; 
@@ -417,6 +465,8 @@ body {
     margin-bottom: 2rem;
     color: #f0f0f0;
     position: relative;
+    text-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
+    animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
 .section-title::after {
@@ -427,8 +477,9 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: #e74c3c;
+    background: linear-gradient(90deg, #e74c3c, #c0392b, #e74c3c);
     border-radius: 2px;
+    animation: titleLine 2s ease-in-out infinite;
 }
 
 /* Video Showcase Section */
@@ -447,15 +498,17 @@ body {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 30% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(231, 76, 60, 0.1) 0%, transparent 50%);
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="video" width="40" height="40" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="40" height="40" fill="none" stroke="%23e74c3c" stroke-width="0.2" opacity="0.1"/><circle cx="20" cy="20" r="3" fill="%23e74c3c" opacity="0.2"/><path d="M 10 10 L 30 20 L 10 30 Z" fill="%23e74c3c" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23video)"/></svg>'),
+        radial-gradient(circle at 25% 75%, rgba(231, 76, 60, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(231, 76, 60, 0.1) 0%, transparent 50%);
     opacity: 1;
+    animation: float 25s ease-in-out infinite reverse;
 }
 
 .video-content {
     text-align: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .video-description {
@@ -532,7 +585,24 @@ body {
 /* Products Section */
 .products {
     padding: 3rem 0;
-    background: #0a0a0a;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.products::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="motherboard" width="30" height="30" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="30" height="30" fill="none" stroke="%23e74c3c" stroke-width="0.3" opacity="0.1"/><circle cx="15" cy="15" r="2" fill="%23e74c3c" opacity="0.2"/><rect x="5" y="5" width="20" height="20" fill="none" stroke="%23e74c3c" stroke-width="0.2" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23motherboard)"/></svg>'),
+        radial-gradient(circle at 20% 80%, rgba(231, 76, 60, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(231, 76, 60, 0.05) 0%, transparent 50%);
+    opacity: 1;
+    animation: float 20s ease-in-out infinite;
 }
 
 /* Category Filters */
@@ -572,16 +642,34 @@ body {
     gap: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .product-card {
-    background: #1a1a1a;
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.product-card:hover::before {
+    left: 100%;
 }
 
 .product-card:hover {
@@ -667,13 +755,36 @@ body {
 }
 
 .spec {
-    background: #333;
+    background: linear-gradient(135deg, #333, #1a1a1a);
     color: #f0f0f0;
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 500;
     border: 1px solid #555;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.spec::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.2), transparent);
+    transition: left 0.3s ease;
+}
+
+.spec:hover::before {
+    left: 100%;
+}
+
+.spec:hover {
+    border-color: #e74c3c;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
 }
 
 .product-price {
@@ -723,7 +834,23 @@ body {
 /* About Section */
 .about {
     padding: 5rem 0;
-    background: #0a0a0a;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 0 10 L 20 10 M 10 0 L 10 20" stroke="%23e74c3c" stroke-width="0.5" opacity="0.1"/><circle cx="10" cy="10" r="1" fill="%23e74c3c" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>'),
+        radial-gradient(circle at 30% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(231, 76, 60, 0.1) 0%, transparent 50%);
+    opacity: 1;
 }
 
 .about-content {
@@ -731,6 +858,8 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .about-text p {
@@ -753,8 +882,10 @@ body {
 
 .feature i {
     font-size: 2rem;
-    color: #00d4ff;
+    color: #e74c3c;
     margin-top: 0.5rem;
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+    animation: pulse 2s ease-in-out infinite;
 }
 
 .feature h3 {
@@ -803,13 +934,31 @@ body {
 /* Contact Section */
 .contact {
     padding: 5rem 0;
-    background: #0a0a0a;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="tech" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 0 12.5 L 25 12.5 M 12.5 0 L 12.5 25" stroke="%23e74c3c" stroke-width="0.3" opacity="0.1"/><circle cx="12.5" cy="12.5" r="1.5" fill="%23e74c3c" opacity="0.2"/><path d="M 5 5 L 20 20 M 20 5 L 5 20" stroke="%23e74c3c" stroke-width="0.2" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23tech)"/></svg>'),
+        radial-gradient(circle at 40% 60%, rgba(231, 76, 60, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 60% 40%, rgba(231, 76, 60, 0.08) 0%, transparent 50%);
+    opacity: 1;
 }
 
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+    position: relative;
+    z-index: 2;
 }
 
 .contact-info h3 {
@@ -829,6 +978,14 @@ body {
     font-size: 1.2rem;
     color: #e74c3c;
     width: 20px;
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover i {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px rgba(231, 76, 60, 0.8);
 }
 
 .contact-form {
@@ -916,9 +1073,10 @@ body {
 }
 
 .social-links a:hover {
-    background: #e74c3c;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: #000;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }
 
 .newsletter-form {
