@@ -54,9 +54,11 @@ body {
 }
 
 .nav-logo i {
-    color: #00d4ff;
+    color: #e74c3c;
     margin-right: 10px;
     font-size: 2rem;
+    text-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .nav-menu {
@@ -84,8 +86,9 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: #00d4ff;
+    background: #e74c3c;
     transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
 }
 
 .nav-link:hover::after {
@@ -109,7 +112,7 @@ body {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
     display: flex;
     align-items: center;
     padding-top: 70px;
@@ -124,8 +127,11 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%2300d4ff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e74c3c" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'),
+        radial-gradient(circle at 20% 80%, rgba(231, 76, 60, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(231, 76, 60, 0.1) 0%, transparent 50%);
+    opacity: 1;
 }
 
 .hero-container {
@@ -149,13 +155,16 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    letter-spacing: -1px;
 }
 
 .highlight {
-    background: linear-gradient(45deg, #00d4ff, #0099cc);
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 30px rgba(231, 76, 60, 0.3);
 }
 
 .hero-subtitle {
@@ -163,12 +172,14 @@ body {
     margin-bottom: 2rem;
     opacity: 0.9;
     line-height: 1.6;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 .btn {
@@ -185,29 +196,69 @@ body {
 }
 
 .btn-primary {
-    background: #e74c3c;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
     color: #fff;
-    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.2);
-    border-radius: 6px;
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary:hover {
-    background: #c0392b;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    background: linear-gradient(45deg, #c0392b, #e74c3c);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-secondary {
     background: transparent;
     color: #fff;
-    border: 2px solid #00d4ff;
+    border: 2px solid #e74c3c;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .btn-secondary:hover {
-    background: #00d4ff;
-    color: #000;
+    background: #e74c3c;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #e74c3c;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-secondary:hover::before {
+    width: 100%;
 }
 
 /* GPU Card Animation */
@@ -220,12 +271,13 @@ body {
 .gpu-card {
     width: 300px;
     height: 200px;
-    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    background: linear-gradient(45deg, #0a0a0a, #1a1a1a, #0a0a0a);
     border-radius: 20px;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 50px rgba(231, 76, 60, 0.2);
     overflow: hidden;
     animation: float 6s ease-in-out infinite;
+    border: 2px solid #333;
 }
 
 .gpu-card::before {
@@ -235,7 +287,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(231, 76, 60, 0.1), transparent);
     animation: shimmer 3s ease-in-out infinite;
 }
 
@@ -251,10 +303,11 @@ body {
 .fan {
     width: 40px;
     height: 40px;
-    border: 3px solid #00d4ff;
+    border: 3px solid #e74c3c;
     border-radius: 50%;
     position: relative;
     animation: spin 2s linear infinite;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
 }
 
 .fan::before {
@@ -265,8 +318,9 @@ body {
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    background: #00d4ff;
+    background: #e74c3c;
     border-radius: 50%;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
 }
 
 .fan-1 { animation-delay: 0s; }
@@ -280,14 +334,21 @@ body {
     transform: translateX(-50%);
     width: 80%;
     height: 4px;
-    background: linear-gradient(90deg, #00d4ff, #0099cc, #00d4ff);
+    background: linear-gradient(90deg, #e74c3c, #c0392b, #e74c3c);
     border-radius: 2px;
     animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { 
+        transform: translateY(0px) rotateY(0deg); 
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 50px rgba(231, 76, 60, 0.2);
+    }
+    50% { 
+        transform: translateY(-20px) rotateY(5deg); 
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 80px rgba(231, 76, 60, 0.4);
+    }
 }
 
 @keyframes spin {
@@ -303,6 +364,15 @@ body {
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+    from { 
+        text-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+    }
+    to { 
+        text-shadow: 0 0 30px rgba(231, 76, 60, 0.8), 0 0 40px rgba(231, 76, 60, 0.3);
+    }
 }
 
 @keyframes fadeIn {
