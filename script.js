@@ -99,6 +99,15 @@ filterButtons.forEach(button => {
             if (category === 'all' || card.getAttribute('data-category') === category) {
                 card.style.display = 'block';
                 card.style.animation = 'fadeIn 0.5s ease forwards';
+            } else if (category === 'popular') {
+                // Show only popular cards (first two cards)
+                const cardIndex = Array.from(productCards).indexOf(card);
+                if (cardIndex < 2) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
             } else {
                 card.style.display = 'none';
             }
