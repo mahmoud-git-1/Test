@@ -166,6 +166,15 @@ document.querySelectorAll('.btn-overlay').forEach(button => {
 
 // Quick view modal
 function showQuickViewModal(productName, productPrice) {
+    // Determine if it's a GPU or CPU based on product name
+    let productImage = "https://via.placeholder.com/400x300/1a1a1a/ffffff?text=" + encodeURIComponent(productName);
+    
+    if (productName.toLowerCase().includes('rtx') || productName.toLowerCase().includes('rx') || productName.toLowerCase().includes('gpu') || productName.toLowerCase().includes('graphics')) {
+        productImage = "https://cdn.mos.cms.futurecdn.net/GSQCwybr57YhjmxK6TP5rM.png";
+    } else if (productName.toLowerCase().includes('ryzen') || productName.toLowerCase().includes('cpu') || productName.toLowerCase().includes('processor')) {
+        productImage = "https://m.media-amazon.com/images/I/716hAjT1uUL._UF350,350_QL80_.jpg";
+    }
+    
     // Create modal HTML
     const modalHTML = `
         <div class="quick-view-modal" id="quickViewModal">
@@ -174,7 +183,7 @@ function showQuickViewModal(productName, productPrice) {
                 <h2>${productName}</h2>
                 <div class="modal-body">
                     <div class="product-preview">
-                        <img src="https://via.placeholder.com/400x300/1a1a1a/ffffff?text=${encodeURIComponent(productName)}" alt="${productName}">
+                        <img src="${productImage}" alt="${productName}">
                     </div>
                     <div class="product-details">
                         <h3>${productName}</h3>
