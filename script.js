@@ -96,13 +96,39 @@ filterButtons.forEach(button => {
         const category = button.getAttribute('data-category');
         
         productCards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
+            const cardCategories = card.getAttribute('data-category').split(' ');
+            
+            if (category === 'all') {
                 card.style.display = 'block';
                 card.style.animation = 'fadeIn 0.5s ease forwards';
             } else if (category === 'popular') {
-                // Show only popular cards (first two cards)
+                // Show only popular cards (first 4 cards - 2 GPUs + 2 CPUs)
                 const cardIndex = Array.from(productCards).indexOf(card);
-                if (cardIndex < 2) {
+                if (cardIndex < 4) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else if (category === 'gpu') {
+                // Show only GPU cards
+                if (cardCategories.includes('gpu')) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else if (category === 'cpu') {
+                // Show only CPU cards
+                if (cardCategories.includes('cpu')) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else if (category === 'professional') {
+                // Show only professional cards
+                if (cardCategories.includes('professional')) {
                     card.style.display = 'block';
                     card.style.animation = 'fadeIn 0.5s ease forwards';
                 } else {
