@@ -408,6 +408,104 @@ body {
     border-radius: 2px;
 }
 
+/* Video Showcase Section */
+.video-showcase {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.video-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(231, 76, 60, 0.1) 0%, transparent 50%);
+    opacity: 1;
+}
+
+.video-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.video-description {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.video-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(231, 76, 60, 0.2);
+    border: 2px solid #333;
+}
+
+.featured-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.video-container:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(231, 76, 60, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.5);
+}
+
+.play-button i {
+    color: white;
+    font-size: 2rem;
+    margin-left: 5px;
+}
+
+.play-button:hover {
+    background: #e74c3c;
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(231, 76, 60, 0.8);
+}
+
 /* Products Section */
 .products {
     padding: 3rem 0;
@@ -845,6 +943,30 @@ body {
     .products-grid {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 1rem;
+    }
+
+    .video-showcase {
+        padding: 3rem 0;
+    }
+
+    .video-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .video-container {
+        margin: 0 1rem;
+        border-radius: 10px;
+    }
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .play-button i {
+        font-size: 1.5rem;
     }
 
     .nav-menu {

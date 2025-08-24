@@ -523,6 +523,50 @@ document.querySelectorAll('.btn').forEach(button => {
     });
 });
 
+// Video player functionality
+const videoContainer = document.querySelector('.video-container');
+const video = document.querySelector('.featured-video');
+const playButton = document.querySelector('.play-button');
+
+if (videoContainer && video && playButton) {
+    // Play button click handler
+    playButton.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playButton.style.display = 'none';
+        } else {
+            video.pause();
+            playButton.style.display = 'flex';
+        }
+    });
+
+    // Video click handler
+    video.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playButton.style.display = 'none';
+        } else {
+            video.pause();
+            playButton.style.display = 'flex';
+        }
+    });
+
+    // Show play button when video ends
+    video.addEventListener('ended', () => {
+        playButton.style.display = 'flex';
+    });
+
+    // Show play button when video is paused
+    video.addEventListener('pause', () => {
+        playButton.style.display = 'flex';
+    });
+
+    // Hide play button when video is playing
+    video.addEventListener('play', () => {
+        playButton.style.display = 'none';
+    });
+}
+
 // Console welcome message
 console.log(`
 🚀 GPU Master Website Loaded Successfully!
