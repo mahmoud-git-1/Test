@@ -9,7 +9,7 @@
 .xp-toggle-btn {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     background: linear-gradient(135deg, #ece9d8 0%, #d4d0c8 50%, #c0c0c0 100%);
     border: 2px solid #0a246a;
     border-radius: 8px;
