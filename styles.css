@@ -1060,6 +1060,16 @@ body {
     box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
 }
 
+.filter-btn[data-category="ram"] {
+    border-color: #2ecc71;
+}
+
+.filter-btn[data-category="ram"]:hover,
+.filter-btn[data-category="ram"].active {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+}
+
 .filter-btn[data-category="professional"] {
     border-color: #9b59b6;
 }
@@ -1097,6 +1107,10 @@ body {
 
 .product-card[data-category*="cpu"] {
     border-left: 4px solid #ff6b35;
+}
+
+.product-card[data-category*="ram"] {
+    border-left: 4px solid #2ecc71;
 }
 
 .product-card[data-category*="professional"] {

@@ -126,6 +126,14 @@ filterButtons.forEach(button => {
                 } else {
                     card.style.display = 'none';
                 }
+            } else if (category === 'ram') {
+                // Show only RAM cards (all cards with 'ram' category)
+                if (cardCategories.includes('ram')) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
             } else if (category === 'professional') {
                 // Show only professional cards
                 if (cardCategories.includes('professional')) {
@@ -162,6 +170,7 @@ function updateCategoryCounter(category) {
             'popular': 'Most Popular',
             'gpu': 'Graphics Cards',
             'cpu': 'Processors',
+            'ram': 'RAM',
             'professional': 'Professional'
         };
         
