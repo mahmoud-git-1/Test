@@ -1070,6 +1070,16 @@ body {
     box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
 }
 
+.filter-btn[data-category="motherboard"] {
+    border-color: #f39c12;
+}
+
+.filter-btn[data-category="motherboard"]:hover,
+.filter-btn[data-category="motherboard"].active {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.4);
+}
+
 .filter-btn[data-category="professional"] {
     border-color: #9b59b6;
 }
@@ -1111,6 +1121,10 @@ body {
 
 .product-card[data-category*="ram"] {
     border-left: 4px solid #2ecc71;
+}
+
+.product-card[data-category*="motherboard"] {
+    border-left: 4px solid #f39c12;
 }
 
 .product-card[data-category*="professional"] {

@@ -134,6 +134,14 @@ filterButtons.forEach(button => {
                 } else {
                     card.style.display = 'none';
                 }
+            } else if (category === 'motherboard') {
+                // Show only motherboard cards (all cards with 'motherboard' category)
+                if (cardCategories.includes('motherboard')) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
             } else if (category === 'professional') {
                 // Show only professional cards
                 if (cardCategories.includes('professional')) {
@@ -171,6 +179,7 @@ function updateCategoryCounter(category) {
             'gpu': 'Graphics Cards',
             'cpu': 'Processors',
             'ram': 'RAM',
+            'motherboard': 'Motherboards',
             'professional': 'Professional'
         };
         
