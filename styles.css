@@ -426,6 +426,20 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.4), transparent);
+    animation: logoLight 3s infinite;
+    z-index: 1;
 }
 
 .nav-logo i {
@@ -434,19 +448,24 @@ body {
     font-size: 2rem;
     text-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
     animation: glow 2s ease-in-out infinite alternate;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 15px rgba(231, 76, 60, 0.6));
 }
 
 .logo-text {
-    background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
-    background-size: 300% 300%;
+    background: linear-gradient(45deg, #000000, #333333, #000000, #ff0000, #cc0000, #000000);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: rgbShift 3s ease-in-out infinite;
+    animation: logoTextShift 4s ease-in-out infinite;
     font-weight: 700;
     font-size: 2.5rem;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
     letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
 }
 
 .nav-menu {
@@ -831,6 +850,30 @@ body {
     to { 
         opacity: 1; 
         transform: translateY(0); 
+    }
+}
+
+@keyframes logoLight {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes logoTextShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
