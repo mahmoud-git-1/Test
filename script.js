@@ -111,7 +111,7 @@ filterButtons.forEach(button => {
                     card.style.display = 'none';
                 }
             } else if (category === 'gpu') {
-                // Show only GPU cards
+                // Show only GPU cards (all cards with 'gpu' category)
                 if (cardCategories.includes('gpu')) {
                     card.style.display = 'block';
                     card.style.animation = 'fadeIn 0.5s ease forwards';
@@ -119,7 +119,7 @@ filterButtons.forEach(button => {
                     card.style.display = 'none';
                 }
             } else if (category === 'cpu') {
-                // Show only CPU cards
+                // Show only CPU cards (all cards with 'cpu' category)
                 if (cardCategories.includes('cpu')) {
                     card.style.display = 'block';
                     card.style.animation = 'fadeIn 0.5s ease forwards';
@@ -138,8 +138,37 @@ filterButtons.forEach(button => {
                 card.style.display = 'none';
             }
         });
+        
+        // Update category counter
+        updateCategoryCounter(category);
     });
 });
+
+// Function to update category counter
+function updateCategoryCounter(category) {
+    let visibleCount = 0;
+    
+    productCards.forEach(card => {
+        if (card.style.display !== 'none') {
+            visibleCount++;
+        }
+    });
+    
+    // Update the section title to show category and count
+    const sectionTitle = document.querySelector('.section-title');
+    if (sectionTitle) {
+        const categoryNames = {
+            'all': 'All Products',
+            'popular': 'Most Popular',
+            'gpu': 'Graphics Cards',
+            'cpu': 'Processors',
+            'professional': 'Professional'
+        };
+        
+        const categoryName = categoryNames[category] || 'Products';
+        sectionTitle.textContent = `${categoryName} (${visibleCount} items)`;
+    }
+}
 
 // Product card interactions
 document.querySelectorAll('.product-card').forEach(card => {
@@ -988,6 +1017,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
+    // Initialize category counter for products page
+    if (window.location.pathname.includes('products.html')) {
+        updateCategoryCounter('all');
+    }
 });
 
 // Add CSS animations
@@ -1050,205 +1084,7 @@ const taskManagerStyleSheet = document.createElement('style');
 taskManagerStyleSheet.textContent = taskManagerStyles;
 document.head.appendChild(taskManagerStyleSheet);
 
-// Usage Graph Effect Functionality
-let currentGraphType = 'gpu';
-let graphData = {
-    gpu: [],
-    cpu: [],
-    memory: []
-};
-let graphAnimationId;
 
-// Initialize graph data
-function initializeGraphData() {
-    const maxPoints = 100;
-    for (let i = 0; i < maxPoints; i++) {
-        graphData.gpu.push(Math.floor(Math.random() * 40) + 50); // 50-90%
-        graphData.cpu.push(Math.floor(Math.random() * 35) + 30); // 30-65%
-        graphData.memory.push(Math.floor(Math.random() * 25) + 60); // 60-85%
-    }
-}
-
-// Switch between different graph types
-function switchGraph(type) {
-    currentGraphType = type;
-    
-    // Update active button
-    document.querySelectorAll('.graph-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    // Update graph title
-    const titles = {
-        gpu: 'GPU Usage',
-        cpu: 'CPU Usage',
-        memory: 'Memory Usage'
-    };
-    
-    // Redraw graph
-    drawGraph();
-}
-
-// Draw the performance graph
-function drawGraph() {
-    const canvas = document.getElementById('performanceGraph');
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-    
-    // Clear canvas
-    ctx.clearRect(0, 0, width, height);
-    
-    // Draw grid
-    drawGrid(ctx, width, height);
-    
-    // Draw graph line
-    drawGraphLine(ctx, width, height);
-    
-    // Update overlay values
-    updateGraphOverlay();
-}
-
-// Draw grid lines
-function drawGrid(ctx, width, height) {
-    ctx.strokeStyle = 'rgba(0, 212, 255, 0.2)';
-    ctx.lineWidth = 1;
-    
-    // Vertical lines
-    for (let x = 0; x <= width; x += width / 10) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-    }
-    
-    // Horizontal lines
-    for (let y = 0; y <= height; y += height / 5) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-    }
-}
-
-// Draw the main graph line
-function drawGraphLine(ctx, width, height) {
-    const data = graphData[currentGraphType];
-    const stepX = width / (data.length - 1);
-    
-    ctx.strokeStyle = '#00d4ff';
-    ctx.lineWidth = 3;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    
-    // Create gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, height);
-    gradient.addColorStop(0, 'rgba(0, 212, 255, 0.8)');
-    gradient.addColorStop(1, 'rgba(0, 212, 255, 0.1)');
-    
-    // Draw line
-    ctx.beginPath();
-    data.forEach((value, index) => {
-        const x = index * stepX;
-        const y = height - (value / 100) * height;
-        
-        if (index === 0) {
-            ctx.moveTo(x, y);
-        } else {
-            ctx.lineTo(x, y);
-        }
-    });
-    ctx.stroke();
-    
-    // Draw filled area
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.moveTo(0, height);
-    data.forEach((value, index) => {
-        const x = index * stepX;
-        const y = height - (value / 100) * height;
-        ctx.lineTo(x, y);
-    });
-    ctx.lineTo(width, height);
-    ctx.closePath();
-    ctx.fill();
-    
-    // Draw data points
-    ctx.fillStyle = '#00d4ff';
-    data.forEach((value, index) => {
-        const x = index * stepX;
-        const y = height - (value / 100) * height;
-        
-        ctx.beginPath();
-        ctx.arc(x, y, 2, 0, 2 * Math.PI);
-        ctx.fill();
-    });
-}
-
-// Update graph overlay with current values
-function updateGraphOverlay() {
-    const data = graphData[currentGraphType];
-    const currentValue = data[data.length - 1];
-    const peakValue = Math.max(...data);
-    const avgValue = Math.round(data.reduce((a, b) => a + b, 0) / data.length);
-    
-    document.getElementById('currentValue').textContent = currentValue;
-    document.getElementById('peakValue').textContent = peakValue + '%';
-    document.getElementById('avgValue').textContent = avgValue + '%';
-}
-
-// Add new data point to graph
-function addDataPoint() {
-    let newValue;
-    
-    switch(currentGraphType) {
-        case 'gpu':
-            newValue = Math.floor(Math.random() * 40) + 50; // 50-90%
-            break;
-        case 'cpu':
-            newValue = Math.floor(Math.random() * 35) + 30; // 30-65%
-            break;
-        case 'memory':
-            newValue = Math.floor(Math.random() * 25) + 60; // 60-85%
-            break;
-        default:
-            newValue = Math.floor(Math.random() * 30) + 40;
-    }
-    
-    // Add new value and remove oldest
-    graphData[currentGraphType].push(newValue);
-    graphData[currentGraphType].shift();
-    
-    // Redraw graph
-    drawGraph();
-}
-
-// Initialize graph when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    const canvas = document.getElementById('performanceGraph');
-    if (canvas) {
-        initializeGraphData();
-        drawGraph();
-        
-        // Start real-time updates
-        setInterval(addDataPoint, 1000);
-        
-        // Add hover effect to show exact values
-        canvas.addEventListener('mousemove', function(e) {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const data = graphData[currentGraphType];
-            const stepX = canvas.width / (data.length - 1);
-            const index = Math.floor(x / stepX);
-            
-            if (index >= 0 && index < data.length) {
-                canvas.style.cursor = 'crosshair';
-                // You could add a tooltip here showing the exact value
-            } else {
-                canvas.style.cursor = 'default';
-            }
-        });
-    }
-});
 
 // Console welcome message
 console.log(`
@@ -1257,5 +1093,4 @@ console.log(`
 💻 Built with HTML, CSS, and JavaScript
 ✨ Enjoy exploring our premium GPU collection!
 🖥️ Windows XP Task Manager effect activated!
-📊 Real-time performance graph added!
 `); 
