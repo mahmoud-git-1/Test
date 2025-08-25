@@ -782,10 +782,279 @@ if (videoContainer && video && playButton) {
     });
 }
 
+// Windows XP Task Manager Functionality
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+// Task Manager Controls
+function toggleTaskManager() {
+    const taskManager = document.getElementById('xpTaskManager');
+    if (taskManager.style.display === 'none') {
+        taskManager.style.display = 'block';
+        taskManager.style.opacity = '1';
+        taskManager.style.transform = 'translate(-50%, -50%) scale(1)';
+        // Reset position
+        xOffset = 0;
+        yOffset = 0;
+        setTranslate(0, 0, taskManager);
+    } else {
+        closeTaskManager();
+    }
+}
+
+function minimizeTaskManager() {
+    const taskManager = document.getElementById('xpTaskManager');
+    taskManager.classList.toggle('minimized');
+}
+
+function maximizeTaskManager() {
+    const taskManager = document.getElementById('xpTaskManager');
+    taskManager.classList.toggle('maximized');
+}
+
+function closeTaskManager() {
+    const taskManager = document.getElementById('xpTaskManager');
+    taskManager.style.opacity = '0';
+    taskManager.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    setTimeout(() => {
+        taskManager.style.display = 'none';
+    }, 300);
+}
+
+function switchTab(tabName) {
+    // Remove active class from all tabs and content
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    // Add active class to clicked tab and corresponding content
+    document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+    document.getElementById(`${tabName}-tab`).classList.add('active');
+}
+
+// Dragging functionality
+function dragStart(e) {
+    if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+    } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+    }
+    
+    if (e.target === document.querySelector('.task-manager-header')) {
+        isDragging = true;
+    }
+}
+
+function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+    isDragging = false;
+}
+
+function drag(e) {
+    if (isDragging) {
+        e.preventDefault();
+        
+        if (e.type === "touchmove") {
+            currentX = e.touches[0].clientX - initialX;
+            currentY = e.touches[0].clientY - initialY;
+        } else {
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+        }
+        
+        xOffset = currentX;
+        yOffset = currentY;
+        
+        setTranslate(currentX, currentY, document.getElementById('xpTaskManager'));
+    }
+}
+
+function setTranslate(xPos, yPos, el) {
+    el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+}
+
+// Animated performance meters
+function animatePerformanceMeters() {
+    const meters = document.querySelectorAll('.meter-fill');
+    const values = document.querySelectorAll('.meter-value');
+    
+    meters.forEach((meter, index) => {
+        const currentWidth = parseInt(meter.style.width);
+        let newWidth;
+        
+        // Different ranges for different meters
+        switch(index) {
+            case 0: // GPU Usage - higher range
+                newWidth = Math.floor(Math.random() * 40) + 50; // 50-90%
+                break;
+            case 1: // CPU Usage - moderate range
+                newWidth = Math.floor(Math.random() * 35) + 30; // 30-65%
+                break;
+            case 2: // Memory Usage - steady range
+                newWidth = Math.floor(Math.random() * 25) + 60; // 60-85%
+                break;
+            case 3: // Network - lower range
+                newWidth = Math.floor(Math.random() * 30) + 20; // 20-50%
+                break;
+            default:
+                newWidth = Math.floor(Math.random() * 30) + 40;
+        }
+        
+        // Smooth transition
+        meter.style.transition = 'width 1s ease';
+        meter.style.width = newWidth + '%';
+        values[index].textContent = newWidth + '%';
+        
+        // Add pulse effect
+        meter.style.animation = 'pulse 0.5s ease';
+        setTimeout(() => {
+            meter.style.animation = '';
+        }, 500);
+    });
+    
+    // Update system info with realistic values
+    updateSystemInfo();
+}
+
+// Update system information
+function updateSystemInfo() {
+    const totalMemory = 32768;
+    const usedMemory = Math.floor(Math.random() * 8000) + 20000; // 20-28GB used
+    const availableMemory = totalMemory - usedMemory;
+    const cacheMemory = Math.floor(Math.random() * 5000) + 12000; // 12-17GB cache
+    
+    const infoValues = document.querySelectorAll('.info-value');
+    if (infoValues.length >= 3) {
+        infoValues[0].textContent = totalMemory.toLocaleString() + ' MB';
+        infoValues[1].textContent = availableMemory.toLocaleString() + ' MB';
+        infoValues[2].textContent = cacheMemory.toLocaleString() + ' MB';
+    }
+}
+
+// Initialize task manager
+document.addEventListener('DOMContentLoaded', function() {
+    const taskManager = document.getElementById('xpTaskManager');
+    const header = document.querySelector('.task-manager-header');
+    
+    if (taskManager && header) {
+        // Add event listeners for dragging
+        header.addEventListener('mousedown', dragStart);
+        header.addEventListener('touchstart', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
+        
+        // Start performance meter animation
+        setInterval(animatePerformanceMeters, 3000);
+        
+        // Add keyboard shortcut to show/hide task manager (Ctrl+Alt+Delete)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.altKey && e.key === 'Delete') {
+                e.preventDefault();
+                toggleTaskManager();
+            }
+        });
+        
+        // Add Windows XP startup sound effect (visual only)
+        setTimeout(() => {
+            const toggleBtn = document.querySelector('.xp-toggle-btn');
+            if (toggleBtn) {
+                toggleBtn.style.animation = 'xpGlow 1s ease-in-out';
+                setTimeout(() => {
+                    toggleBtn.style.animation = '';
+                }, 1000);
+            }
+        }, 2000);
+        
+        // Add hover effects to process items
+        const processItems = document.querySelectorAll('.process-item');
+        processItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.background = '#e8f4fd';
+                this.style.borderLeft = '3px solid #0a246a';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.background = '';
+                this.style.borderLeft = '';
+            });
+        });
+    }
+});
+
+// Add CSS animations
+const taskManagerStyles = `
+    @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.7; }
+        100% { opacity: 1; }
+    }
+    
+    @keyframes taskManagerAppear {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+    
+    @keyframes xpGlow {
+        0% { box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #0a246a, 0 8px 16px rgba(0, 0, 0, 0.3); }
+        50% { box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #0a246a, 0 8px 16px rgba(0, 212, 255, 0.3); }
+        100% { box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #0a246a, 0 8px 16px rgba(0, 0, 0, 0.3); }
+    }
+    
+    .xp-task-manager {
+        animation: taskManagerAppear 0.5s ease;
+    }
+    
+    .xp-task-manager:hover {
+        animation: xpGlow 2s ease-in-out infinite;
+    }
+    
+    .meter-fill {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .meter-fill::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        animation: shimmer 2s infinite;
+    }
+    
+    @keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+`;
+
+// Inject task manager styles
+const taskManagerStyleSheet = document.createElement('style');
+taskManagerStyleSheet.textContent = taskManagerStyles;
+document.head.appendChild(taskManagerStyleSheet);
+
 // Console welcome message
 console.log(`
 🚀 GPU Master Website Loaded Successfully!
 🎮 Ready to showcase the latest graphics cards
 💻 Built with HTML, CSS, and JavaScript
 ✨ Enjoy exploring our premium GPU collection!
+🖥️ Windows XP Task Manager effect activated!
 `); 

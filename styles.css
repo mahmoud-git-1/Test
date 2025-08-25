@@ -5,6 +5,381 @@
     box-sizing: border-box;
 }
 
+/* Windows XP Task Manager Toggle Button */
+.xp-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ece9d8 0%, #d4d0c8 50%, #c0c0c0 100%);
+    border: 2px solid #0a246a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 
+        0 0 0 1px #ffffff,
+        0 0 0 2px #0a246a,
+        0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 9998;
+    transition: all 0.3s ease;
+}
+
+.xp-toggle-btn:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #ece9d8 50%, #d4d0c8 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 0 1px #ffffff,
+        0 0 0 2px #0a246a,
+        0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.xp-toggle-btn:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 0 0 1px #ffffff,
+        0 0 0 2px #0a246a,
+        0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.xp-toggle-btn i {
+    font-size: 14px;
+    color: #0a246a;
+}
+
+/* Windows XP Task Manager Styles */
+.xp-task-manager {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    background: linear-gradient(135deg, #ece9d8 0%, #d4d0c8 50%, #c0c0c0 100%);
+    border: 2px solid #0a246a;
+    border-radius: 8px;
+    box-shadow: 
+        0 0 0 1px #ffffff,
+        0 0 0 2px #0a246a,
+        0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+    font-size: 11px;
+    color: #000;
+    cursor: move;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.xp-task-manager.minimized {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+}
+
+.xp-task-manager.maximized {
+    width: 90vw;
+    height: 80vh;
+}
+
+.task-manager-header {
+    background: linear-gradient(135deg, #0a246a 0%, #1e3a8a 50%, #0a246a 100%);
+    color: white;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #0a246a;
+    cursor: move;
+}
+
+.task-manager-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.task-manager-title i {
+    font-size: 14px;
+}
+
+.task-manager-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.task-manager-controls button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ffffff;
+    background: linear-gradient(135deg, #c0c0c0 0%, #d4d0c8 50%, #ece9d8 100%);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.task-manager-controls button:hover {
+    background: linear-gradient(135deg, #d4d0c8 0%, #ece9d8 50%, #ffffff 100%);
+    transform: scale(1.05);
+}
+
+.close-btn:hover {
+    background: #ff0000 !important;
+    color: white !important;
+}
+
+.task-manager-content {
+    padding: 12px;
+    height: calc(100% - 40px);
+    overflow: hidden;
+}
+
+.task-manager-tabs {
+    display: flex;
+    border-bottom: 2px solid #0a246a;
+    margin-bottom: 12px;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #ece9d8 0%, #d4d0c8 100%);
+    border: 1px solid #0a246a;
+    border-bottom: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #ece9d8 100%);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #ffffff 0%, #ece9d8 100%);
+    border-bottom: 2px solid #ffffff;
+    margin-bottom: -2px;
+}
+
+.tab-content {
+    display: none;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Performance Tab Styles */
+.performance-meters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.meter-group {
+    background: #ffffff;
+    border: 1px solid #0a246a;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.meter-group h4 {
+    margin-bottom: 8px;
+    color: #0a246a;
+    font-weight: bold;
+}
+
+.meter {
+    width: 100%;
+    height: 20px;
+    background: #c0c0c0;
+    border: 1px solid #808080;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.meter-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.gpu-usage {
+    background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+}
+
+.cpu-usage {
+    background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+}
+
+.memory-usage {
+    background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+}
+
+.network-usage {
+    background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+}
+
+.meter-value {
+    font-weight: bold;
+    color: #0a246a;
+}
+
+.system-info {
+    background: #ffffff;
+    border: 1px solid #0a246a;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #0a246a;
+}
+
+.info-value {
+    color: #000;
+}
+
+/* Processes Tab Styles */
+.process-list {
+    background: #ffffff;
+    border: 1px solid #0a246a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.process-header {
+    background: linear-gradient(135deg, #0a246a 0%, #1e3a8a 100%);
+    color: white;
+    padding: 8px 12px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    font-weight: bold;
+}
+
+.process-item {
+    padding: 6px 12px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.2s ease;
+}
+
+.process-item:hover {
+    background: #f0f0f0;
+}
+
+.process-item:last-child {
+    border-bottom: none;
+}
+
+.process-name {
+    font-weight: bold;
+    color: #0a246a;
+}
+
+.process-cpu {
+    color: #000;
+}
+
+.process-memory {
+    color: #000;
+}
+
+/* Hardware Tab Styles */
+.hardware-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hardware-item {
+    background: #ffffff;
+    border: 1px solid #0a246a;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.hardware-item h4 {
+    color: #0a246a;
+    font-weight: bold;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 4px;
+}
+
+.hardware-item p {
+    margin: 4px 0;
+    color: #000;
+    font-size: 10px;
+}
+
+/* Scrollbar Styles */
+.tab-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.tab-content::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border: 1px solid #808080;
+}
+
+.tab-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #0a246a 0%, #1e3a8a 100%);
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+}
+
+.tab-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0a246a 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .xp-task-manager {
+        width: 95vw;
+        height: 70vh;
+        font-size: 10px;
+    }
+    
+    .performance-meters {
+        grid-template-columns: 1fr;
+    }
+    
+    .hardware-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-header,
+    .process-item {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }

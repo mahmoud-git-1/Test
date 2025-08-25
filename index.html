@@ -38,6 +38,136 @@
         </div>
     </nav>
 
+    <!-- Windows XP Task Manager Toggle Button -->
+    <button class="xp-toggle-btn" onclick="toggleTaskManager()" title="Ctrl+Alt+Delete">
+        <i class="fas fa-tasks"></i>
+        <span>System Monitor</span>
+    </button>
+
+    <!-- Windows XP Task Manager Effect -->
+    <div class="xp-task-manager" id="xpTaskManager" style="display: none;">
+        <div class="task-manager-header">
+            <div class="task-manager-title">
+                <i class="fas fa-tasks"></i>
+                <span>Hardware Heaven - System Monitor</span>
+            </div>
+            <div class="task-manager-controls">
+                <button class="minimize-btn" onclick="minimizeTaskManager()">_</button>
+                <button class="maximize-btn" onclick="maximizeTaskManager()">□</button>
+                <button class="close-btn" onclick="closeTaskManager()">×</button>
+            </div>
+        </div>
+        <div class="task-manager-content">
+            <div class="task-manager-tabs">
+                <button class="tab-btn active" onclick="switchTab('performance')">Performance</button>
+                <button class="tab-btn" onclick="switchTab('processes')">Processes</button>
+                <button class="tab-btn" onclick="switchTab('hardware')">Hardware</button>
+            </div>
+            
+            <div class="tab-content active" id="performance-tab">
+                <div class="performance-meters">
+                    <div class="meter-group">
+                        <h4>GPU Usage</h4>
+                        <div class="meter">
+                            <div class="meter-fill gpu-usage" style="width: 85%"></div>
+                        </div>
+                        <span class="meter-value">85%</span>
+                    </div>
+                    <div class="meter-group">
+                        <h4>CPU Usage</h4>
+                        <div class="meter">
+                            <div class="meter-fill cpu-usage" style="width: 67%"></div>
+                        </div>
+                        <span class="meter-value">67%</span>
+                    </div>
+                    <div class="meter-group">
+                        <h4>Memory Usage</h4>
+                        <div class="meter">
+                            <div class="meter-fill memory-usage" style="width: 72%"></div>
+                        </div>
+                        <span class="meter-value">72%</span>
+                    </div>
+                    <div class="meter-group">
+                        <h4>Network</h4>
+                        <div class="meter">
+                            <div class="meter-fill network-usage" style="width: 45%"></div>
+                        </div>
+                        <span class="meter-value">45%</span>
+                    </div>
+                </div>
+                <div class="system-info">
+                    <div class="info-row">
+                        <span class="info-label">Total Physical Memory:</span>
+                        <span class="info-value">32,768 MB</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Available Physical Memory:</span>
+                        <span class="info-value">9,216 MB</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">System Cache:</span>
+                        <span class="info-value">15,360 MB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="processes-tab">
+                <div class="process-list">
+                    <div class="process-header">
+                        <span>Image Name</span>
+                        <span>CPU</span>
+                        <span>Mem Usage</span>
+                    </div>
+                    <div class="process-item">
+                        <span class="process-name">HardwareHeaven.exe</span>
+                        <span class="process-cpu">12%</span>
+                        <span class="process-memory">2,048 MB</span>
+                    </div>
+                    <div class="process-item">
+                        <span class="process-name">GPU_Driver.sys</span>
+                        <span class="process-cpu">8%</span>
+                        <span class="process-memory">512 MB</span>
+                    </div>
+                    <div class="process-item">
+                        <span class="process-name">System</span>
+                        <span class="process-cpu">5%</span>
+                        <span class="process-memory">1,024 MB</span>
+                    </div>
+                    <div class="process-item">
+                        <span class="process-name">svchost.exe</span>
+                        <span class="process-cpu">3%</span>
+                        <span class="process-memory">256 MB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="hardware-tab">
+                <div class="hardware-info">
+                    <div class="hardware-item">
+                        <h4>Graphics Card</h4>
+                        <p>NVIDIA RTX 4090 - 24GB GDDR6X</p>
+                        <p>Driver Version: 546.33</p>
+                    </div>
+                    <div class="hardware-item">
+                        <h4>Processor</h4>
+                        <p>AMD Ryzen 9 7950X - 16 Cores</p>
+                        <p>Base Clock: 4.5 GHz</p>
+                    </div>
+                    <div class="hardware-item">
+                        <h4>Memory</h4>
+                        <p>32GB DDR5-6000</p>
+                        <p>Dual Channel</p>
+                    </div>
+                    <div class="hardware-item">
+                        <h4>Storage</h4>
+                        <p>Samsung 990 Pro 2TB NVMe</p>
+                        <p>Read: 7,450 MB/s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
