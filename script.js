@@ -159,13 +159,19 @@ document.querySelectorAll('.btn-overlay').forEach(button => {
         const card = this.closest('.product-card');
         const productName = card.querySelector('h3').textContent;
         const productPrice = card.querySelector('.price').textContent;
+        const productDescription = card.querySelector('.product-description').textContent;
+        const productSpecs = Array.from(card.querySelectorAll('.spec')).map(spec => spec.textContent);
+        const productDetails = Array.from(card.querySelectorAll('.detail-item')).map(item => ({
+            label: item.querySelector('.detail-label').textContent.replace(':', ''),
+            value: item.querySelector('.detail-value').textContent
+        }));
         
-        showQuickViewModal(productName, productPrice);
+        showQuickViewModal(productName, productPrice, productDescription, productSpecs, productDetails);
     });
 });
 
 // Quick view modal
-function showQuickViewModal(productName, productPrice) {
+function showQuickViewModal(productName, productPrice, productDescription, productSpecs, productDetails) {
     // Determine if it's a GPU or CPU based on product name
     let productImage = "https://via.placeholder.com/400x300/1a1a1a/ffffff?text=" + encodeURIComponent(productName);
     
@@ -187,16 +193,28 @@ function showQuickViewModal(productName, productPrice) {
                     </div>
                     <div class="product-details">
                         <h3>${productName}</h3>
+                        <p class="modal-description">${productDescription}</p>
                         <p class="modal-price">${productPrice}</p>
-                        <div class="product-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>High-performance gaming</li>
-                                <li>Advanced cooling system</li>
-                                <li>RGB lighting</li>
-                                <li>Overclocking support</li>
-                            </ul>
+                        
+                        <div class="product-specs-modal">
+                            <h4>Key Specifications:</h4>
+                            <div class="specs-grid">
+                                ${productSpecs.map(spec => `<span class="spec-badge">${spec}</span>`).join('')}
+                            </div>
                         </div>
+                        
+                        <div class="product-features">
+                            <h4>Technical Details:</h4>
+                            <div class="details-list">
+                                ${productDetails.map(detail => `
+                                    <div class="detail-row">
+                                        <span class="detail-label">${detail.label}:</span>
+                                        <span class="detail-value">${detail.value}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
                         <div class="modal-actions">
                             <button class="btn btn-primary">Add to Cart</button>
                             <button class="btn btn-secondary">View Full Specs</button>
@@ -210,20 +228,63 @@ function showQuickViewModal(productName, productPrice) {
     // Add modal to page
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     
-    // Show modal
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+    
+    // Show modal with proper positioning
     const modal = document.getElementById('quickViewModal');
     modal.style.display = 'flex';
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = '10000';
+    modal.style.opacity = '0';
+    modal.style.transition = 'opacity 0.3s ease';
+    
+    // Trigger animations
+    setTimeout(() => {
+        modal.style.opacity = '1';
+        modal.classList.add('show');
+    }, 10);
     
     // Close modal functionality
     const closeBtn = modal.querySelector('.close-modal');
     closeBtn.addEventListener('click', () => {
-        modal.remove();
+        modal.style.opacity = '0';
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            modal.remove();
+        }, 300);
     });
     
     // Close modal when clicking outside
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
-            modal.remove();
+            modal.style.opacity = '0';
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                modal.remove();
+            }, 300);
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function closeOnEscape(e) {
+        if (e.key === 'Escape') {
+            modal.style.opacity = '0';
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                modal.remove();
+            }, 300);
+            document.removeEventListener('keydown', closeOnEscape);
         }
     });
 }
@@ -352,18 +413,18 @@ window.addEventListener('scroll', () => {
 // Add CSS for quick view modal
 const modalStyles = `
     .quick-view-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: rgba(0, 0, 0, 0.8) !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        z-index: 10000 !important;
         opacity: 0;
-        animation: fadeIn 0.3s ease forwards;
+        transition: opacity 0.3s ease;
     }
     
     .modal-content {
@@ -375,7 +436,12 @@ const modalStyles = `
         overflow-y: auto;
         position: relative;
         transform: scale(0.8);
-        animation: scaleIn 0.3s ease forwards;
+        transition: transform 0.3s ease;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    
+    .quick-view-modal.show .modal-content {
+        transform: scale(1);
     }
     
     .close-modal {
@@ -386,10 +452,17 @@ const modalStyles = `
         cursor: pointer;
         color: #666;
         z-index: 1;
+        background: none;
+        border: none;
+        padding: 5px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
     }
     
     .close-modal:hover {
         color: #00d4ff;
+        background: rgba(0, 212, 255, 0.1);
+        transform: scale(1.1);
     }
     
     .modal-content h2 {
@@ -397,6 +470,7 @@ const modalStyles = `
         margin: 0;
         color: #333;
         border-bottom: 2px solid #f0f0f0;
+        font-size: 1.8rem;
     }
     
     .modal-body {
@@ -410,6 +484,18 @@ const modalStyles = `
         width: 100%;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .product-preview img:hover {
+        transform: scale(1.05);
+    }
+    
+    .modal-description {
+        color: #666;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 10px 0 20px 0;
     }
     
     .modal-price {
@@ -419,29 +505,67 @@ const modalStyles = `
         margin: 15px 0;
     }
     
+    .product-specs-modal {
+        margin: 20px 0;
+    }
+    
+    .product-specs-modal h4 {
+        margin-bottom: 15px;
+        color: #333;
+        font-size: 1.2rem;
+    }
+    
+    .specs-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .spec-badge {
+        background: linear-gradient(135deg, #00d4ff, #0099cc);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
+    }
+    
     .product-features h4 {
         margin-bottom: 15px;
         color: #333;
+        font-size: 1.2rem;
     }
     
-    .product-features ul {
-        list-style: none;
-        padding: 0;
+    .details-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
     
-    .product-features li {
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 8px 0;
-        color: #666;
-        position: relative;
-        padding-left: 20px;
+        border-bottom: 1px solid #f0f0f0;
     }
     
-    .product-features li::before {
-        content: '✓';
-        position: absolute;
-        left: 0;
-        color: #00d4ff;
-        font-weight: bold;
+    .detail-row:last-child {
+        border-bottom: none;
+    }
+    
+    .detail-row .detail-label {
+        font-weight: 600;
+        color: #333;
+        font-size: 0.9rem;
+    }
+    
+    .detail-row .detail-value {
+        color: #666;
+        font-size: 0.9rem;
+        font-weight: 500;
     }
     
     .modal-actions {
@@ -451,22 +575,78 @@ const modalStyles = `
         flex-wrap: wrap;
     }
     
-    @keyframes fadeIn {
-        to { opacity: 1; }
+    .modal-actions .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
     }
     
-    @keyframes scaleIn {
-        to { transform: scale(1); }
+    .modal-actions .btn-primary {
+        background: linear-gradient(135deg, #00d4ff, #0099cc);
+        color: white;
+    }
+    
+    .modal-actions .btn-primary:hover {
+        background: linear-gradient(135deg, #0099cc, #007799);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+    }
+    
+    .modal-actions .btn-secondary {
+        background: transparent;
+        color: #00d4ff;
+        border: 2px solid #00d4ff;
+    }
+    
+    .modal-actions .btn-secondary:hover {
+        background: #00d4ff;
+        color: white;
+        transform: translateY(-2px);
     }
     
     @media (max-width: 768px) {
+        .modal-content {
+            width: 95%;
+            max-height: 95vh;
+        }
+        
         .modal-body {
             grid-template-columns: 1fr;
             gap: 20px;
+            padding: 20px;
         }
         
         .modal-actions {
             flex-direction: column;
+        }
+        
+        .modal-content h2 {
+            padding: 20px 20px 15px;
+            font-size: 1.5rem;
+        }
+        
+        .specs-grid {
+            justify-content: center;
+        }
+        
+        .detail-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
+        
+        .detail-row .detail-label {
+            font-size: 0.85rem;
+        }
+        
+        .detail-row .detail-value {
+            font-size: 0.85rem;
         }
     }
 `;
