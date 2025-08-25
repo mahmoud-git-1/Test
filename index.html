@@ -174,6 +174,37 @@
             <div class="hero-content">
                 <h1 class="hero-title">Next-Gen <span class="highlight">Graphics</span></h1>
                 <p class="hero-subtitle">Experience gaming and creativity like never before with our premium collection of cutting-edge graphic cards</p>
+                
+                <!-- Usage Graph Effect -->
+                <div class="usage-graph-container">
+                    <div class="graph-header">
+                        <h3>Real-Time Performance Monitor</h3>
+                        <div class="graph-controls">
+                            <button class="graph-btn active" onclick="switchGraph('gpu')">GPU</button>
+                            <button class="graph-btn" onclick="switchGraph('cpu')">CPU</button>
+                            <button class="graph-btn" onclick="switchGraph('memory')">Memory</button>
+                        </div>
+                    </div>
+                    <div class="graph-display">
+                        <canvas id="performanceGraph" width="400" height="200"></canvas>
+                        <div class="graph-overlay">
+                            <div class="current-value">
+                                <span id="currentValue">85</span>%
+                            </div>
+                            <div class="graph-info">
+                                <div class="info-item">
+                                    <span class="label">Peak:</span>
+                                    <span class="value" id="peakValue">92%</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Average:</span>
+                                    <span class="value" id="avgValue">78%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="hero-buttons">
                     <a href="products.html" class="btn btn-primary">Shop Now</a>
                     <a href="about.html" class="btn btn-secondary">Learn More</a>
