@@ -36,6 +36,36 @@
                 left: 15px;
             }
         }
+
+        /* Blog Header Image Styles */
+        .blog-header-image {
+            padding: 40px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            text-align: center;
+        }
+
+        .header-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .header-image:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .blog-header-image {
+                padding: 20px 0;
+            }
+            
+            .header-image {
+                max-height: 250px;
+            }
+        }
     </style>
     <style>
         /* Blog Filter Styles */
@@ -169,13 +199,10 @@
         <img src="20.png" alt="Space Marine Helmet" />
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hardware <span class="highlight">Blogs</span></h1>
-                <p class="hero-subtitle">Stay updated with the latest hardware news, reviews, and insights from our expert team</p>
-            </div>
+    <!-- Blog Header Image -->
+    <section class="blog-header-image">
+        <div class="container">
+            <img src="Lex Verum Astartes.jpg" alt="Lex Verum Astartes" class="header-image">
         </div>
     </section>
 
