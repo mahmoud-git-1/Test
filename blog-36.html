@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post 36 - Hardware Heaven</title>
+    <title>Common PC Issues: Troubleshooting Guide - Hardware Heaven</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -46,7 +46,7 @@
         <div class="container">
             <div class="blog-post-content">
                 <div class="blog-post-header">
-                    <h1 class="blog-post-title">Blog Post 36</h1>
+                    <h1 class="blog-post-title">🔧 Common PC Issues: Troubleshooting Guide</h1>
                     <div class="blog-post-meta">
                         <span class="blog-date">December 19, 2024</span>
                         <span class="blog-author">Hardware Heaven Team</span>
@@ -54,13 +54,111 @@
                 </div>
                 
                 <div class="blog-post-image">
-                    <div class="blog-post-emoji"></div>
+                    <div class="blog-post-emoji">🔧</div>
                 </div>
                 
                 <div class="blog-post-body">
-                    <p>This is a placeholder blog post. Content will be added here in the future.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Every PC user encounters problems at some point. Whether it's a system that won't boot, mysterious crashes, or performance issues, troubleshooting is an essential skill for any computer enthusiast. This comprehensive guide covers the most common PC issues and their solutions.</p>
+
+                    <h2>🚫 System Won't Boot</h2>
+                    <p><strong>Problem:</strong> Your computer won't start up or gets stuck during the boot process.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Check Power Connections:</strong> Ensure all power cables are securely connected</li>
+                        <li><strong>Test Power Supply:</strong> Use a PSU tester or try a known working PSU</li>
+                        <li><strong>Clear CMOS:</strong> Reset BIOS settings to default</li>
+                        <li><strong>Check RAM:</strong> Test with one stick at a time in different slots</li>
+                        <li><strong>Boot from USB:</strong> Try booting from a Windows installation media</li>
+                    </ul>
+
+                    <h2>💥 Blue Screen of Death (BSOD)</h2>
+                    <p><strong>Problem:</strong> System crashes with blue screen error messages.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Note Error Code:</strong> Write down the specific error code (e.g., 0x0000007B)</li>
+                        <li><strong>Update Drivers:</strong> Especially graphics and chipset drivers</li>
+                        <li><strong>Check Hardware:</strong> Run memory tests and check for overheating</li>
+                        <li><strong>System File Check:</strong> Run 'sfc /scannow' in Command Prompt</li>
+                        <li><strong>Check Disk:</strong> Run 'chkdsk /f' to fix file system errors</li>
+                    </ul>
+
+                    <h2>🐌 Slow Performance</h2>
+                    <p><strong>Problem:</strong> System runs slowly, applications take forever to load.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Check Task Manager:</strong> Identify resource-heavy processes</li>
+                        <li><strong>Disk Cleanup:</strong> Remove temporary files and unused programs</li>
+                        <li><strong>Defragment HDD:</strong> Only for traditional hard drives, not SSDs</li>
+                        <li><strong>Add RAM:</strong> Upgrade memory if usage is consistently high</li>
+                        <li><strong>Check for Malware:</strong> Run full antivirus scan</li>
+                    </ul>
+
+                    <h2>🌡️ Overheating Issues</h2>
+                    <p><strong>Problem:</strong> System shuts down unexpectedly or runs hot.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Clean Dust:</strong> Remove dust from fans, heatsinks, and vents</li>
+                        <li><strong>Check Thermal Paste:</strong> Reapply if CPU/GPU temperatures are high</li>
+                        <li><strong>Improve Airflow:</strong> Ensure proper case ventilation</li>
+                        <li><strong>Monitor Temperatures:</strong> Use HWiNFO64 or Core Temp</li>
+                        <li><strong>Check Fan Speeds:</strong> Ensure all fans are spinning properly</li>
+                    </ul>
+
+                    <h2>🔊 Audio Problems</h2>
+                    <p><strong>Problem:</strong> No sound, distorted audio, or audio device not recognized.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Check Audio Settings:</strong> Verify correct output device is selected</li>
+                        <li><strong>Update Audio Drivers:</strong> Download latest drivers from manufacturer</li>
+                        <li><strong>Check Connections:</strong> Ensure speakers/headphones are properly connected</li>
+                        <li><strong>Windows Audio Service:</strong> Restart Windows Audio service</li>
+                        <li><strong>Test Different Ports:</strong> Try different audio jacks or USB ports</li>
+                    </ul>
+
+                    <h2>🌐 Network Connectivity Issues</h2>
+                    <p><strong>Problem:</strong> Can't connect to internet or slow network speeds.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Restart Router/Modem:</strong> Power cycle network equipment</li>
+                        <li><strong>Check Network Adapter:</strong> Update network drivers</li>
+                        <li><strong>Reset Network Stack:</strong> Run 'netsh winsock reset' and 'netsh int ip reset'</li>
+                        <li><strong>Check DNS Settings:</strong> Try using Google DNS (8.8.8.8, 8.8.4.4)</li>
+                        <li><strong>Test with Different Device:</strong> Isolate if it's a PC or network issue</li>
+                    </ul>
+
+                    <h2>🖥️ Display Problems</h2>
+                    <p><strong>Problem:</strong> No display, distorted graphics, or resolution issues.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Check Cable Connections:</strong> Ensure monitor cables are secure</li>
+                        <li><strong>Try Different Ports:</strong> Test HDMI, DisplayPort, DVI, or VGA</li>
+                        <li><strong>Update Graphics Drivers:</strong> Download latest drivers from NVIDIA/AMD/Intel</li>
+                        <li><strong>Check Monitor Settings:</strong> Verify correct input source is selected</li>
+                        <li><strong>Test with Different Monitor:</strong> Isolate if it's a GPU or monitor issue</li>
+                    </ul>
+
+                    <h2>💾 Storage Issues</h2>
+                    <p><strong>Problem:</strong> Drive not recognized, slow read/write speeds, or data corruption.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li><strong>Check Connections:</strong> Ensure SATA/power cables are secure</li>
+                        <li><strong>Disk Management:</strong> Check if drive appears in Disk Management</li>
+                        <li><strong>Run CHKDSK:</strong> Fix file system errors</li>
+                        <li><strong>Check SMART Status:</strong> Use CrystalDiskInfo to check drive health</li>
+                        <li><strong>Update Storage Drivers:</strong> Install latest chipset drivers</li>
+                    </ul>
+
+                    <h2>🔧 General Troubleshooting Tips</h2>
+                    <ul>
+                        <li><strong>Document Everything:</strong> Keep track of error messages and when they occur</li>
+                        <li><strong>One Change at a Time:</strong> Make single changes to isolate the problem</li>
+                        <li><strong>Use System Restore:</strong> Roll back to a previous working state</li>
+                        <li><strong>Check Event Viewer:</strong> Look for error logs in Windows Event Viewer</li>
+                        <li><strong>Keep Drivers Updated:</strong> Regularly update all system drivers</li>
+                        <li><strong>Backup Important Data:</strong> Always have backups before making major changes</li>
+                    </ul>
+
+                    <p>Remember, troubleshooting is often a process of elimination. Start with the simplest solutions and work your way up to more complex fixes. When in doubt, don't hesitate to seek help from online communities or professional technicians.</p>
                 </div>
                 
                 <div class="blog-post-navigation">

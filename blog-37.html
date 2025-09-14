@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post 37 - Hardware Heaven</title>
+    <title>Hardware Diagnostics: Testing Your Components - Hardware Heaven</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -46,7 +46,7 @@
         <div class="container">
             <div class="blog-post-content">
                 <div class="blog-post-header">
-                    <h1 class="blog-post-title">Blog Post 37</h1>
+                    <h1 class="blog-post-title">🔍 Hardware Diagnostics: Testing Your Components</h1>
                     <div class="blog-post-meta">
                         <span class="blog-date">December 19, 2024</span>
                         <span class="blog-author">Hardware Heaven Team</span>
@@ -54,13 +54,171 @@
                 </div>
                 
                 <div class="blog-post-image">
-                    <div class="blog-post-emoji"></div>
+                    <div class="blog-post-emoji">🔍</div>
                 </div>
                 
                 <div class="blog-post-body">
-                    <p>This is a placeholder blog post. Content will be added here in the future.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>When your PC starts acting up, the first step is to identify which component is causing the problem. Hardware diagnostics tools help you test each component systematically to pinpoint issues before they become major problems. This guide covers the essential diagnostic tools and techniques for testing your PC's hardware.</p>
+
+                    <h2>🖥️ CPU Testing</h2>
+                    <p><strong>Prime95:</strong> The gold standard for CPU stress testing. It runs intensive mathematical calculations to test CPU stability and thermal performance.</p>
+                    <ul>
+                        <li>Download and run Prime95</li>
+                        <li>Select "Just stress testing" and choose "Small FFTs" for maximum heat</li>
+                        <li>Monitor temperatures with HWiNFO64 or Core Temp</li>
+                        <li>Run for at least 30 minutes to ensure stability</li>
+                    </ul>
+
+                    <p><strong>AIDA64:</strong> Comprehensive system information and stress testing tool.</p>
+                    <ul>
+                        <li>Provides detailed system information</li>
+                        <li>Includes CPU, memory, and GPU stress tests</li>
+                        <li>Real-time monitoring of temperatures and voltages</li>
+                    </ul>
+
+                    <h2>🧠 Memory (RAM) Testing</h2>
+                    <p><strong>MemTest86:</strong> The most thorough memory testing tool available.</p>
+                    <ul>
+                        <li>Create a bootable USB drive with MemTest86</li>
+                        <li>Boot from USB and let it run multiple passes</li>
+                        <li>Any errors indicate faulty RAM modules</li>
+                        <li>Test each stick individually to isolate problems</li>
+                    </ul>
+
+                    <p><strong>Windows Memory Diagnostic:</strong> Built-in Windows tool for basic memory testing.</p>
+                    <ul>
+                        <li>Type "mdsched.exe" in Run dialog</li>
+                        <li>Choose "Restart now and check for problems"</li>
+                        <li>System will restart and run memory tests</li>
+                    </ul>
+
+                    <h2>🎮 Graphics Card Testing</h2>
+                    <p><strong>FurMark:</strong> GPU stress testing and benchmarking tool.</p>
+                    <ul>
+                        <li>Runs intensive graphics workloads</li>
+                        <li>Tests GPU stability and thermal performance</n                        <li>Monitor GPU temperatures and fan speeds</li>
+                        <li>Watch for artifacts or crashes during testing</li>
+                    </ul>
+
+                    <p><strong>3DMark:</strong> Professional graphics benchmarking suite.</p>
+                    <ul>
+                        <li>Comprehensive graphics performance testing</li>
+                        <li>Compare results with similar hardware</li>
+                        <li>Stress test mode for stability testing</li>
+                        <li>Detailed performance analysis</li>
+                    </ul>
+
+                    <p><strong>GPU-Z:</strong> Graphics card information and monitoring tool.</p>
+                    <ul>
+                        <li>Detailed GPU specifications and sensors</li>
+                        <li>Real-time monitoring of temperatures, clocks, and usage</li>
+                        <li>Logging capabilities for long-term monitoring</li>
+                    </ul>
+
+                    <h2>💾 Storage Testing</h2>
+                    <p><strong>CrystalDiskInfo:</strong> Hard drive and SSD health monitoring.</p>
+                    <ul>
+                        <li>Displays SMART data and drive health status</li>
+                        <li>Temperature monitoring and alerts</li>
+                        <li>Identifies potential drive failures early</li>
+                    </ul>
+
+                    <p><strong>CrystalDiskMark:</strong> Storage performance benchmarking.</p>
+                    <ul>
+                        <li>Tests sequential and random read/write speeds</li>
+                        <li>Compare performance between different drives</li>
+                        <li>Useful for identifying slow or failing drives</li>
+                    </ul>
+
+                    <p><strong>HD Tune:</strong> Comprehensive hard drive testing tool.</p>
+                    <ul>
+                        <li>Error scanning for bad sectors</li>
+                        <li>Performance benchmarking</li>
+                        <li>Health monitoring and SMART data</li>
+                    </ul>
+
+                    <h2>⚡ Power Supply Testing</h2>
+                    <p><strong>PSU Tester:</strong> Hardware device for testing power supply functionality.</p>
+                    <ul>
+                        <li>Tests all voltage rails (3.3V, 5V, 12V)</li>
+                        <li>Checks for proper voltage levels and stability</li>
+                        <li>Identifies failing power supplies quickly</li>
+                    </ul>
+
+                    <p><strong>Software Monitoring:</strong> Use HWiNFO64 to monitor power supply voltages.</p>
+                    <ul>
+                        <li>Monitor voltage levels in real-time</li>
+                        <li>Look for voltage drops under load</li>
+                        <li>Check for voltage fluctuations or instability</li>
+                    </ul>
+
+                    <h2>🌡️ Temperature Monitoring</h2>
+                    <p><strong>HWiNFO64:</strong> Comprehensive hardware monitoring tool.</p>
+                    <ul>
+                        <li>Monitors all system temperatures</li>
+                        <li>Real-time voltage and fan speed monitoring</li>
+                        <li>Logging capabilities for long-term analysis</li>
+                        <li>Alerts for high temperatures or voltages</li>
+                    </ul>
+
+                    <p><strong>Core Temp:</strong> CPU temperature monitoring.</p>
+                    <ul>
+                        <li>Simple, lightweight CPU temperature monitoring</li>
+                        <li>Per-core temperature display</n                        <li>Overheating protection and alerts</li>
+                    </ul>
+
+                    <h2>🔧 Motherboard and System Testing</h2>
+                    <p><strong>CPU-Z:</strong> System information and validation tool.</p>
+                    <ul>
+                        <li>Detailed CPU, memory, and motherboard information</li>
+                        <li>Real-time clock speed monitoring</li>
+                        <li>Validation and benchmarking features</li>
+                    </ul>
+
+                    <p><strong>Speccy:</strong> System information and temperature monitoring.</p>
+                    <ul>
+                        <li>Comprehensive system overview</li>
+                        <li>Temperature monitoring for all components</li>
+                        <li>Easy-to-read interface</li>
+                    </ul>
+
+                    <h2>📊 Benchmarking and Performance Testing</h2>
+                    <p><strong>UserBenchmark:</strong> Quick system performance assessment.</p>
+                    <ul>
+                        <li>Tests CPU, GPU, RAM, and storage performance</li>
+                        <li>Compares results with similar systems</li>
+                        <li>Identifies underperforming components</li>
+                    </ul>
+
+                    <p><strong>PassMark PerformanceTest:</strong> Comprehensive system benchmarking.</p>
+                    <ul>
+                        <li>Tests all major system components</li>
+                        <li>Detailed performance analysis and reporting</li>
+                        <li>Compare results with database of other systems</li>
+                    </ul>
+
+                    <h2>🛠️ Diagnostic Workflow</h2>
+                    <ol>
+                        <li><strong>Start with System Information:</strong> Use CPU-Z and HWiNFO64 to get baseline information</li>
+                        <li><strong>Monitor Temperatures:</strong> Check idle temperatures before stress testing</li>
+                        <li><strong>Test Memory First:</strong> Run MemTest86 to rule out RAM issues</li>
+                        <li><strong>CPU Stress Test:</strong> Use Prime95 to test CPU stability</li>
+                        <li><strong>GPU Testing:</strong> Run FurMark or 3DMark for graphics card testing</li>
+                        <li><strong>Storage Health:</strong> Check SMART data with CrystalDiskInfo</li>
+                        <li><strong>Power Supply:</strong> Monitor voltages under load</li>
+                        <li><strong>Full System Test:</strong> Run comprehensive benchmarks</li>
+                    </ol>
+
+                    <h2>⚠️ Safety Tips</h2>
+                    <ul>
+                        <li><strong>Monitor Temperatures:</strong> Never let components exceed safe operating temperatures</li>
+                        <li><strong>Gradual Testing:</strong> Start with light tests and gradually increase intensity</li>
+                        <li><strong>Backup Data:</strong> Always backup important data before stress testing</li>
+                        <li><strong>Stop on Errors:</strong> If you see errors or artifacts, stop testing immediately</li>
+                        <li><strong>Proper Cooling:</strong> Ensure adequate cooling before running stress tests</li>
+                    </ul>
+
+                    <p>Regular hardware diagnostics help you catch problems early and maintain optimal system performance. Make it a habit to run these tests periodically, especially after hardware changes or when experiencing system instability.</p>
                 </div>
                 
                 <div class="blog-post-navigation">
