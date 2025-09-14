@@ -7,6 +7,99 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Blog Filter Styles */
+        .blog-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #007bff;
+            background: transparent;
+            color: #007bff;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            background: #007bff;
+            color: white;
+        }
+        
+        .filter-btn.active {
+            background: #007bff;
+            color: white;
+        }
+        
+        /* Status Badge Styles */
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.published {
+            background: #28a745;
+            color: white;
+        }
+        
+        .status-badge.planned {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        /* Blog Card Enhancements */
+        .blog-card {
+            position: relative;
+        }
+        
+        .blog-image {
+            position: relative;
+        }
+        
+        .blog-category {
+            background: #f8f9fa;
+            color: #6c757d;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-filters {
+                justify-content: center;
+            }
+            
+            .filter-btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -116,25 +209,129 @@
             const blogsGrid = document.querySelector('.blogs-grid');
             const totalBlogs = 200;
             
-            for (let i = 1; i <= totalBlogs; i++) {
+            // Comprehensive blog data structure for future-proofing
+            const blogData = {
+                // Hardware Fundamentals (1-10)
+                1: { title: "The Evolution of CPU Architecture: From Intel 4004 to Modern Processors", emoji: "🧠", excerpt: "Explore the fascinating journey of CPU evolution from the first microprocessor to today's multi-core powerhouses.", category: "Hardware Fundamentals", status: "published" },
+                2: { title: "Graphics Processing Units: The Evolution from 2D to Ray Tracing", emoji: "🎮", excerpt: "Discover how GPUs have transformed from simple 2D accelerators to complex ray tracing powerhouses.", category: "Hardware Fundamentals", status: "published" },
+                3: { title: "RAM Evolution: From DRAM to DDR5", emoji: "💾", excerpt: "Learn about the evolution of memory technology and how DDR5 is revolutionizing system performance.", category: "Hardware Fundamentals", status: "published" },
+                4: { title: "Motherboard Architecture: The Backbone of Computing", emoji: "🔌", excerpt: "Understand the critical role motherboards play in connecting and coordinating all system components.", category: "Hardware Fundamentals", status: "published" },
+                5: { title: "Storage Technology Evolution: From HDDs to NVMe SSDs", emoji: "💿", excerpt: "Trace the evolution of storage from spinning disks to lightning-fast NVMe solid-state drives.", category: "Hardware Fundamentals", status: "published" },
+                6: { title: "Intel vs AMD: The Ultimate CPU Battle", emoji: "⚔️", excerpt: "Compare the two CPU giants and discover which processor is right for your needs.", category: "Hardware Fundamentals", status: "published" },
+                7: { title: "NVIDIA vs AMD: The Ultimate GPU Battle", emoji: "🎯", excerpt: "Dive deep into the graphics card rivalry and find the perfect GPU for your gaming rig.", category: "Hardware Fundamentals", status: "published" },
+                8: { title: "RAM Manufacturers: The Giants Behind Memory Technology", emoji: "🏭", excerpt: "Meet the companies that create the memory chips powering your computer.", category: "Hardware Fundamentals", status: "published" },
+                9: { title: "Motherboard Manufacturers: The Architects of Computing", emoji: "🏗️", excerpt: "Explore the leading motherboard manufacturers and their innovative designs.", category: "Hardware Fundamentals", status: "published" },
+                10: { title: "The Ultimate Hardware Buying Guide 2024", emoji: "🛒", excerpt: "Your comprehensive guide to building the perfect PC with expert recommendations and tips.", category: "Hardware Fundamentals", status: "published" },
+                
+                // Warhammer 40K Themed Content (11-20)
+                11: { title: "The Adeptus Mechanicus: Sacred Technology and Machine Spirits", emoji: "⚙️", excerpt: "Learn the sacred rites of hardware maintenance from the Tech-Priests of Mars.", category: "Warhammer 40K", status: "published" },
+                12: { title: "The Space Marines: Elite Gaming Rigs of the Imperium", emoji: "⚔️", excerpt: "Build gaming systems worthy of the Emperor's finest warriors with these elite configurations.", category: "Warhammer 40K", status: "published" },
+                13: { title: "The Chaos Gods: Overclocking and Performance Enhancement", emoji: "🔥", excerpt: "Embrace the dark arts of overclocking with the forbidden knowledge of the Ruinous Powers.", category: "Warhammer 40K", status: "published" },
+                14: { title: "The Orks: Budget Gaming and Creative Solutions", emoji: "🔧", excerpt: "Build powerful gaming rigs the Ork way - maximum performance for minimum teef!", category: "Warhammer 40K", status: "published" },
+                15: { title: "The Necrons: Ancient Technology and Future-Proofing", emoji: "⚡", excerpt: "Learn the ancient wisdom of building systems that transcend time and remain powerful for ages.", category: "Warhammer 40K", status: "published" },
+                16: { title: "The Tyranids: Swarm Intelligence and Multi-GPU Systems", emoji: "🦗", excerpt: "Harness the power of the Hive Mind with multi-GPU systems that work as one.", category: "Warhammer 40K", status: "published" },
+                17: { title: "The Eldar: Precision Engineering and Aesthetic Excellence", emoji: "✨", excerpt: "Build systems of aesthetic perfection with the precision and beauty of the Craftworld.", category: "Warhammer 40K", status: "published" },
+                18: { title: "The Tau Empire: Advanced Technology and Innovation", emoji: "🔬", excerpt: "Embrace the cutting edge of technology with the innovative approach of the Greater Good.", category: "Warhammer 40K", status: "published" },
+                19: { title: "The Dark Eldar: Extreme Performance and Dangerous Overclocking", emoji: "💀", excerpt: "Push your hardware to the absolute limits with the dangerous arts of the Dark City.", category: "Warhammer 40K", status: "published" },
+                20: { title: "The Imperium of Man: The Ultimate Hardware Empire", emoji: "🏛️", excerpt: "Build systems worthy of the greatest empire with the strength and reliability of the Imperium.", category: "Warhammer 40K", status: "published" },
+                
+                // Dark Souls Themed Content (21-25)
+                21: { title: "The Chosen Undead: Building Your First Gaming Rig", emoji: "🔥", excerpt: "Begin your journey in PC building with the wisdom of the Chosen Undead and the first flame.", category: "Dark Souls", status: "published" },
+                22: { title: "The Lords of Cinder: High-End Gaming Rigs", emoji: "👑", excerpt: "Build legendary systems with the absolute power and majesty of the Lords of Cinder.", category: "Dark Souls", status: "published" },
+                23: { title: "The Age of Dark: Budget Gaming and Creative Solutions", emoji: "🌑", excerpt: "Master the art of budget building with the resourcefulness of the age of dark.", category: "Dark Souls", status: "published" },
+                24: { title: "The Abyss: Extreme Overclocking and Dangerous Modifications", emoji: "⚫", excerpt: "Dive into the depths of extreme overclocking with the dark power of the abyss.", category: "Dark Souls", status: "published" },
+                25: { title: "The Cycle of Fire: Future-Proofing and the Eternal Quest", emoji: "♾️", excerpt: "Build systems for the ages with the eternal wisdom of the cycle of fire and dark.", category: "Dark Souls", status: "published" }
+            };
+            
+            // Function to generate blog post with enhanced features
+            function generateBlogPost(i) {
                 const blogPost = document.createElement('div');
                 blogPost.className = 'blog-card';
+                
+                // Get data for this blog post
+                const data = blogData[i] || {
+                    title: `Blog Post ${i}`,
+                    emoji: "📝",
+                    excerpt: "This is a placeholder blog post. Content will be added here in the future.",
+                    category: "General",
+                    status: "planned"
+                };
+                
+                // Add status indicator
+                const statusIndicator = data.status === 'published' ? 
+                    '<span class="status-badge published">Published</span>' : 
+                    '<span class="status-badge planned">Coming Soon</span>';
+                
                 blogPost.innerHTML = `
                     <div class="blog-image">
-                        <div class="blog-emoji">📝</div>
+                        <div class="blog-emoji">${data.emoji}</div>
+                        ${statusIndicator}
                     </div>
                     <div class="blog-content">
-                        <h3 class="blog-title">Blog Post ${i}</h3>
-                        <p class="blog-excerpt">This is a placeholder blog post. Content will be added here in the future.</p>
+                        <h3 class="blog-title">${data.title}</h3>
+                        <p class="blog-excerpt">${data.excerpt}</p>
                         <div class="blog-meta">
+                            <span class="blog-category">${data.category}</span>
                             <span class="blog-date">${new Date().toLocaleDateString()}</span>
                             <span class="blog-author">Hardware Heaven Team</span>
                         </div>
                         <a href="blog-${i}.html" class="btn btn-primary">Read More</a>
                     </div>
                 `;
-                blogsGrid.appendChild(blogPost);
+                return blogPost;
             }
+            
+            // Generate all blog posts
+            for (let i = 1; i <= totalBlogs; i++) {
+                blogsGrid.appendChild(generateBlogPost(i));
+            }
+            
+            // Add filtering functionality
+            const filterButtons = document.createElement('div');
+            filterButtons.className = 'blog-filters';
+            filterButtons.innerHTML = `
+                <button class="filter-btn active" data-filter="all">All Posts</button>
+                <button class="filter-btn" data-filter="published">Published</button>
+                <button class="filter-btn" data-filter="planned">Coming Soon</button>
+                <button class="filter-btn" data-filter="Hardware Fundamentals">Hardware Fundamentals</button>
+                <button class="filter-btn" data-filter="Warhammer 40K">Warhammer 40K</button>
+                <button class="filter-btn" data-filter="Dark Souls">Dark Souls</button>
+                <button class="filter-btn" data-filter="Gaming Performance">Gaming Performance</button>
+                <button class="filter-btn" data-filter="Cooling Solutions">Cooling Solutions</button>
+                <button class="filter-btn" data-filter="Build Guides">Build Guides</button>
+                <button class="filter-btn" data-filter="Troubleshooting">Troubleshooting</button>
+                <button class="filter-btn" data-filter="Industry News">Industry News</button>
+                <button class="filter-btn" data-filter="Advanced Topics">Advanced Topics</button>
+                <button class="filter-btn" data-filter="Community">Community</button>
+            `;
+            
+            // Insert filter buttons before the blogs grid
+            blogsGrid.parentNode.insertBefore(filterButtons, blogsGrid);
+            
+            // Add filter functionality
+            filterButtons.addEventListener('click', function(e) {
+                if (e.target.classList.contains('filter-btn')) {
+                    // Update active button
+                    filterButtons.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    const filter = e.target.dataset.filter;
+                    const blogCards = blogsGrid.querySelectorAll('.blog-card');
+                    
+                    blogCards.forEach(card => {
+                        const category = card.querySelector('.blog-category').textContent;
+                        const status = card.querySelector('.status-badge').classList.contains('published') ? 'published' : 'planned';
+                        
+                        if (filter === 'all' || 
+                            filter === category || 
+                            filter === status) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
         });
     </script>
 </body>
