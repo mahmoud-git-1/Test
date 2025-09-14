@@ -432,20 +432,13 @@ body {
     color: #e74c3c;
     margin-right: 10px;
     font-size: 2rem;
-    text-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
-    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .logo-text {
-    background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: rgbShift 3s ease-in-out infinite;
-    font-weight: 700;
+    color: #fff;
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-weight: 400;
     font-size: 2.5rem;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     letter-spacing: 2px;
 }
 
@@ -861,26 +854,7 @@ body {
     50% { opacity: 0.5; }
 }
 
-@keyframes glow {
-    from { 
-        text-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
-    }
-    to { 
-        text-shadow: 0 0 30px rgba(231, 76, 60, 0.8), 0 0 40px rgba(231, 76, 60, 0.3);
-    }
-}
 
-@keyframes rgbShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
 @keyframes pulse {
     0%, 100% {
