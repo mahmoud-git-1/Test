@@ -1442,6 +1442,234 @@ body {
     justify-content: center;
 }
 
+/* Blogs Section */
+.blogs-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.blogs-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="blog" width="30" height="30" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="30" height="30" fill="none" stroke="%23e74c3c" stroke-width="0.2" opacity="0.1"/><circle cx="15" cy="15" r="2" fill="%23e74c3c" opacity="0.2"/><path d="M 5 5 L 25 25 M 25 5 L 5 25" stroke="%23e74c3c" stroke-width="0.1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23blog)"/></svg>'),
+        radial-gradient(circle at 30% 70%, rgba(231, 76, 60, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(231, 76, 60, 0.08) 0%, transparent 50%);
+    opacity: 1;
+}
+
+.blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.blog-card {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border: 1px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.blog-card:hover::before {
+    left: 100%;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.2);
+    border-color: #e74c3c;
+}
+
+.blog-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.blog-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    color: #ccc;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.blog-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog-date::before {
+    content: '\f073';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #e74c3c;
+}
+
+.blog-author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog-author::before {
+    content: '\f007';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #e74c3c;
+}
+
+/* Blog Post Section */
+.blog-post-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.blog-post-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="blogpost" width="25" height="25" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="25" height="25" fill="none" stroke="%23e74c3c" stroke-width="0.1" opacity="0.1"/><circle cx="12.5" cy="12.5" r="1" fill="%23e74c3c" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23blogpost)"/></svg>'),
+        radial-gradient(circle at 20% 80%, rgba(231, 76, 60, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(231, 76, 60, 0.05) 0%, transparent 50%);
+    opacity: 1;
+}
+
+.blog-post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border: 1px solid #333;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.blog-post-header {
+    padding: 3rem 3rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.blog-post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #f0f0f0;
+    text-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
+}
+
+.blog-post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.blog-post-image {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.blog-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-post-image:hover img {
+    transform: scale(1.05);
+}
+
+.blog-post-body {
+    padding: 3rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.blog-post-body p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.blog-post-navigation {
+    padding: 2rem 3rem 3rem;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
 /* Contact Section */
 .contact {
     padding: 5rem 0;
