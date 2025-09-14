@@ -51,7 +51,16 @@
             position: relative;
         }
 
-        .blog-header-image::before {
+        .blog-header-image .container {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            border: 2px solid #e74c3c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(231, 76, 60, 0.3);
+            position: relative;
+        }
+
+        .blog-header-image .container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -59,6 +68,7 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(45deg, transparent, rgba(231, 76, 60, 0.1), transparent);
+            border-radius: 8px;
             pointer-events: none;
         }
 
