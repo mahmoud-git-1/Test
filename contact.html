@@ -8,6 +8,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Space Marine Helmet Image Styles */
+        .space-marine-helmet {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+        .space-marine-helmet img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .space-marine-helmet {
+                width: 80px;
+                height: 80px;
+                bottom: 15px;
+                left: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -31,6 +60,11 @@
             </div>
         </div>
     </nav>
+
+    <!-- Space Marine Helmet -->
+    <div class="space-marine-helmet" id="spaceMarineHelmet">
+        <img src="20.png" alt="Space Marine Helmet" />
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">

@@ -91,6 +91,92 @@
                 height: 50vh;
             }
         }
+
+        /* Sidebar Quote Styles */
+        .sidebar-quote {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            border: 2px solid #e74c3c;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            transition: all 0.3s ease;
+            opacity: 0.95;
+        }
+
+        .sidebar-quote:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 15px 40px rgba(231, 76, 60, 0.3);
+        }
+
+        .sidebar-quote img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-quote {
+            position: absolute;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            border: 2px solid #e74c3c;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .floating-quote:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.3);
+        }
+
+        .floating-quote img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .blog-header-quote {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 220px;
+        }
+
+        .blog-content-quote {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-quote {
+                display: none;
+            }
+            
+            .floating-quote {
+                position: relative;
+                margin: 1rem auto;
+                width: 90%;
+                max-width: 300px;
+            }
+            
+            .blog-header-quote,
+            .blog-content-quote {
+                position: relative;
+                width: 100%;
+                margin: 1rem 0;
+            }
+        }
     </style>
     <style>
         /* Blog Filter Styles */
@@ -224,6 +310,11 @@
         <img src="20.png" alt="Space Marine Helmet" />
     </div>
 
+    <!-- Sidebar Quote -->
+    <div class="sidebar-quote">
+        <img src="d99f3832c5c67957740fa6cc24939dec.jpg" alt="Inspirational Quote">
+    </div>
+
     <!-- Blog Header Image -->
     <section class="blog-header-image">
         <div class="container">
@@ -233,6 +324,9 @@
 
     <!-- Blogs Section -->
     <section class="blogs-section">
+        <div class="floating-quote blog-content-quote">
+            <img src="c4fe031f437f2cb7db3a556fded7f976.jpg" alt="Inspirational Quote">
+        </div>
         <div class="container">
             <h2 class="section-title">Latest Blog Posts</h2>
             <div class="blogs-grid">
@@ -240,6 +334,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="footer">
