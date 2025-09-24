@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Pixel Art Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* Space Marine Helmet Image Styles */
         .space-marine-helmet {
@@ -120,6 +122,339 @@
                 position: relative;
                 width: 100%;
                 margin: 1rem 0;
+            }
+        }
+
+        /* ===== PIXEL ART STYLE OVERRIDE ===== */
+        /* Pixel Art Base Styles */
+        * {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        body {
+            background: #1a1a2e !important;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #16213e 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #0f3460 0%, transparent 50%),
+                linear-gradient(45deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Press Start 2P', monospace !important;
+            color: #00ff41 !important;
+            text-shadow: 2px 2px 0px #008f11;
+            line-height: 1.6;
+        }
+
+        /* Pixel Art Navigation */
+        .navbar {
+            background: #0d1117 !important;
+            border-bottom: 4px solid #00ff41 !important;
+            box-shadow: 0 4px 0 #008f11, 0 8px 0 #006600 !important;
+        }
+
+        .nav-container {
+            background: linear-gradient(90deg, #0d1117 0%, #161b22 50%, #0d1117 100%) !important;
+            border: 2px solid #00ff41 !important;
+            border-radius: 0 !important;
+        }
+
+        .nav-logo {
+            color: #00ff41 !important;
+            text-shadow: 2px 2px 0px #008f11 !important;
+        }
+
+        .nav-logo i {
+            color: #ff6b35 !important;
+            text-shadow: 2px 2px 0px #cc4a1a !important;
+        }
+
+        .nav-link {
+            color: #00ff41 !important;
+            text-shadow: 1px 1px 0px #008f11 !important;
+            border: 2px solid transparent !important;
+            padding: 8px 16px !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .nav-link:hover {
+            background: #00ff41 !important;
+            color: #0d1117 !important;
+            text-shadow: none !important;
+            border: 2px solid #008f11 !important;
+            box-shadow: inset 2px 2px 0px #00ff41, inset -2px -2px 0px #008f11 !important;
+        }
+
+        .nav-link.active {
+            background: #ff6b35 !important;
+            color: #0d1117 !important;
+            text-shadow: none !important;
+            border: 2px solid #cc4a1a !important;
+            box-shadow: inset 2px 2px 0px #ff6b35, inset -2px -2px 0px #cc4a1a !important;
+        }
+
+        /* Pixel Art Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%) !important;
+            border: 4px solid #00ff41 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 0 0 2px #008f11,
+                0 8px 0 #008f11,
+                0 16px 0 #006600 !important;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #ff6b35, #00ff41, #ff6b35, #00ff41);
+            background-size: 20px 20px;
+            z-index: -1;
+            animation: pixelBorder 2s linear infinite;
+        }
+
+        @keyframes pixelBorder {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
+        }
+
+        .hero h1 {
+            color: #00ff41 !important;
+            text-shadow: 
+                3px 3px 0px #008f11,
+                6px 6px 0px #006600,
+                9px 9px 0px #004400 !important;
+            font-size: 2.5rem !important;
+            letter-spacing: 2px !important;
+        }
+
+        .hero p {
+            color: #ff6b35 !important;
+            text-shadow: 2px 2px 0px #cc4a1a !important;
+            font-size: 1rem !important;
+        }
+
+        /* Pixel Art Buttons */
+        .btn {
+            font-family: 'Press Start 2P', monospace !important;
+            border: 3px solid #00ff41 !important;
+            border-radius: 0 !important;
+            background: #0d1117 !important;
+            color: #00ff41 !important;
+            text-shadow: 1px 1px 0px #008f11 !important;
+            padding: 12px 24px !important;
+            transition: all 0.1s ease !important;
+            position: relative;
+            box-shadow: 
+                0 4px 0 #008f11,
+                0 8px 0 #006600 !important;
+        }
+
+        .btn:hover {
+            background: #00ff41 !important;
+            color: #0d1117 !important;
+            text-shadow: none !important;
+            transform: translateY(2px) !important;
+            box-shadow: 
+                0 2px 0 #008f11,
+                0 4px 0 #006600 !important;
+        }
+
+        .btn:active {
+            transform: translateY(4px) !important;
+            box-shadow: 
+                0 0 0 #008f11,
+                0 0 0 #006600 !important;
+        }
+
+        .btn-primary {
+            background: #ff6b35 !important;
+            color: #0d1117 !important;
+            text-shadow: none !important;
+            border-color: #cc4a1a !important;
+            box-shadow: 
+                0 4px 0 #cc4a1a,
+                0 8px 0 #aa3a0a !important;
+        }
+
+        .btn-primary:hover {
+            background: #ff8c5a !important;
+            transform: translateY(2px) !important;
+            box-shadow: 
+                0 2px 0 #cc4a1a,
+                0 4px 0 #aa3a0a !important;
+        }
+
+        /* Pixel Art Cards */
+        .product-card, .feature-card, .stats-card {
+            background: #0d1117 !important;
+            border: 3px solid #00ff41 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 4px 0 #008f11,
+                0 8px 0 #006600 !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .product-card:hover, .feature-card:hover, .stats-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 
+                0 8px 0 #008f11,
+                0 12px 0 #006600 !important;
+        }
+
+        .product-card h3, .feature-card h3, .stats-card h3 {
+            color: #00ff41 !important;
+            text-shadow: 2px 2px 0px #008f11 !important;
+        }
+
+        .product-card p, .feature-card p, .stats-card p {
+            color: #ff6b35 !important;
+            text-shadow: 1px 1px 0px #cc4a1a !important;
+        }
+
+        /* Pixel Art Sections */
+        .section-title {
+            color: #00ff41 !important;
+            text-shadow: 
+                3px 3px 0px #008f11,
+                6px 6px 0px #006600 !important;
+            border-bottom: 4px solid #00ff41 !important;
+            padding-bottom: 10px !important;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #ff6b35;
+            box-shadow: 0 4px 0 #cc4a1a;
+        }
+
+        /* Pixel Art Footer */
+        .footer {
+            background: #0d1117 !important;
+            border-top: 4px solid #00ff41 !important;
+            box-shadow: 
+                0 -4px 0 #008f11,
+                0 -8px 0 #006600 !important;
+        }
+
+        .footer h3 {
+            color: #00ff41 !important;
+            text-shadow: 2px 2px 0px #008f11 !important;
+        }
+
+        .footer p, .footer li {
+            color: #ff6b35 !important;
+            text-shadow: 1px 1px 0px #cc4a1a !important;
+        }
+
+        .footer a {
+            color: #00ff41 !important;
+            text-shadow: 1px 1px 0px #008f11 !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .footer a:hover {
+            color: #ff6b35 !important;
+            text-shadow: 1px 1px 0px #cc4a1a !important;
+        }
+
+        /* Pixel Art Social Links */
+        .social-links a {
+            background: #0d1117 !important;
+            border: 2px solid #00ff41 !important;
+            border-radius: 0 !important;
+            color: #00ff41 !important;
+            transition: all 0.1s ease !important;
+            box-shadow: 0 2px 0 #008f11 !important;
+        }
+
+        .social-links a:hover {
+            background: #00ff41 !important;
+            color: #0d1117 !important;
+            transform: translateY(2px) !important;
+            box-shadow: 0 0 0 #008f11 !important;
+        }
+
+        /* Pixel Art Form Elements */
+        input, textarea, select {
+            background: #0d1117 !important;
+            border: 2px solid #00ff41 !important;
+            border-radius: 0 !important;
+            color: #00ff41 !important;
+            font-family: 'Press Start 2P', monospace !important;
+            padding: 8px 12px !important;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none !important;
+            border-color: #ff6b35 !important;
+            box-shadow: 0 0 0 2px #cc4a1a !important;
+        }
+
+        /* Pixel Art Animations */
+        @keyframes pixelGlow {
+            0%, 100% { 
+                text-shadow: 
+                    2px 2px 0px #008f11,
+                    0 0 10px #00ff41;
+            }
+            50% { 
+                text-shadow: 
+                    2px 2px 0px #008f11,
+                    0 0 20px #00ff41,
+                    0 0 30px #00ff41;
+            }
+        }
+
+        .hero h1 {
+            animation: pixelGlow 3s ease-in-out infinite !important;
+        }
+
+        /* Pixel Art Scrollbar */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0d1117;
+            border: 2px solid #00ff41;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff41;
+            border: 2px solid #008f11;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff6b35;
+            border-color: #cc4a1a;
+        }
+
+        /* Responsive Pixel Art */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .btn {
+                padding: 8px 16px !important;
+                font-size: 0.8rem !important;
+            }
+            
+            .nav-link {
+                padding: 6px 12px !important;
+                font-size: 0.7rem !important;
             }
         }
     </style>
