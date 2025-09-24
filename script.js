@@ -201,13 +201,21 @@ document.querySelectorAll('.btn-overlay').forEach(button => {
 
 // Quick view modal
 function showQuickViewModal(productName, productPrice, productDescription, productSpecs, productDetails) {
-    // Determine if it's a GPU or CPU based on product name
-    let productImage = "https://via.placeholder.com/400x300/1a1a1a/ffffff?text=" + encodeURIComponent(productName);
+    // Determine emoji based on product type
+    let productEmoji = "💻"; // Default emoji
     
     if (productName.toLowerCase().includes('rtx') || productName.toLowerCase().includes('rx') || productName.toLowerCase().includes('gpu') || productName.toLowerCase().includes('graphics')) {
-        productImage = "https://cdn.mos.cms.futurecdn.net/GSQCwybr57YhjmxK6TP5rM.png";
+        productEmoji = "🎮"; // Gaming/GPU emoji
     } else if (productName.toLowerCase().includes('ryzen') || productName.toLowerCase().includes('cpu') || productName.toLowerCase().includes('processor')) {
-        productImage = "https://m.media-amazon.com/images/I/716hAjT1uUL._UF350,350_QL80_.jpg";
+        productEmoji = "⚡"; // CPU/Processor emoji
+    } else if (productName.toLowerCase().includes('ram') || productName.toLowerCase().includes('memory')) {
+        productEmoji = "🧠"; // Memory emoji
+    } else if (productName.toLowerCase().includes('ssd') || productName.toLowerCase().includes('storage') || productName.toLowerCase().includes('hard drive')) {
+        productEmoji = "💾"; // Storage emoji
+    } else if (productName.toLowerCase().includes('motherboard') || productName.toLowerCase().includes('mobo')) {
+        productEmoji = "🔌"; // Motherboard emoji
+    } else if (productName.toLowerCase().includes('cooling') || productName.toLowerCase().includes('fan') || productName.toLowerCase().includes('heatsink')) {
+        productEmoji = "❄️"; // Cooling emoji
     }
     
     // Create modal HTML
@@ -218,7 +226,7 @@ function showQuickViewModal(productName, productPrice, productDescription, produ
                 <h2>${productName}</h2>
                 <div class="modal-body">
                     <div class="product-preview">
-                        <img src="${productImage}" alt="${productName}">
+                        <div class="product-emoji-large">${productEmoji}</div>
                     </div>
                     <div class="product-details">
                         <h3>${productName}</h3>

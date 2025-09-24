@@ -39,91 +39,6 @@
             }
         }
 
-        /* Sidebar Quote Styles */
-        .sidebar-quote {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 280px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-            border: 2px solid #e74c3c;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            z-index: 100;
-            transition: all 0.3s ease;
-            opacity: 0.95;
-        }
-
-        .sidebar-quote:hover {
-            opacity: 1;
-            transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 15px 40px rgba(231, 76, 60, 0.3);
-        }
-
-        .sidebar-quote img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-        }
-
-        .floating-quote {
-            position: absolute;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-            border: 2px solid #e74c3c;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .floating-quote:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.3);
-        }
-
-        .floating-quote img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-        }
-
-        .hero-quote {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 220px;
-        }
-
-        .cta-quote {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            width: 250px;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar-quote {
-                display: none;
-            }
-            
-            .floating-quote {
-                position: relative;
-                margin: 1rem auto;
-                width: 90%;
-                max-width: 300px;
-            }
-            
-            .hero-quote,
-            .cta-quote {
-                position: relative;
-                width: 100%;
-                margin: 1rem 0;
-            }
-        }
 
         /* ===== PIXEL ART STYLE OVERRIDE ===== */
         /* Pixel Art Base Styles */
@@ -134,72 +49,72 @@
         }
 
         body {
-            background: #1a1a2e !important;
+            background: #000000 !important;
             background-image: 
-                radial-gradient(circle at 25% 25%, #16213e 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, #0f3460 0%, transparent 50%),
-                linear-gradient(45deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                radial-gradient(circle at 25% 25%, #001100 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #002200 0%, transparent 50%),
+                linear-gradient(45deg, #000000 0%, #001100 50%, #002200 100%);
             font-family: 'Press Start 2P', monospace !important;
-            color: #00ff41 !important;
-            text-shadow: 2px 2px 0px #008f11;
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800;
             line-height: 1.6;
         }
 
         /* Pixel Art Navigation */
         .navbar {
-            background: #0d1117 !important;
-            border-bottom: 4px solid #00ff41 !important;
-            box-shadow: 0 4px 0 #008f11, 0 8px 0 #006600 !important;
+            background: #000000 !important;
+            border-bottom: 4px solid #00ff00 !important;
+            box-shadow: 0 4px 0 #008800, 0 8px 0 #006600 !important;
         }
 
         .nav-container {
-            background: linear-gradient(90deg, #0d1117 0%, #161b22 50%, #0d1117 100%) !important;
-            border: 2px solid #00ff41 !important;
+            background: linear-gradient(90deg, #000000 0%, #001100 50%, #000000 100%) !important;
+            border: 2px solid #00ff00 !important;
             border-radius: 0 !important;
         }
 
         .nav-logo {
-            color: #00ff41 !important;
-            text-shadow: 2px 2px 0px #008f11 !important;
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
         }
 
         .nav-logo i {
-            color: #ff6b35 !important;
-            text-shadow: 2px 2px 0px #cc4a1a !important;
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
         }
 
         .nav-link {
-            color: #00ff41 !important;
-            text-shadow: 1px 1px 0px #008f11 !important;
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
             border: 2px solid transparent !important;
             padding: 8px 16px !important;
             transition: all 0.1s ease !important;
         }
 
         .nav-link:hover {
-            background: #00ff41 !important;
-            color: #0d1117 !important;
+            background: #ff0000 !important;
+            color: #000000 !important;
             text-shadow: none !important;
-            border: 2px solid #008f11 !important;
-            box-shadow: inset 2px 2px 0px #00ff41, inset -2px -2px 0px #008f11 !important;
+            border: 2px solid #cc0000 !important;
+            box-shadow: inset 2px 2px 0px #ff0000, inset -2px -2px 0px #cc0000 !important;
         }
 
         .nav-link.active {
-            background: #ff6b35 !important;
-            color: #0d1117 !important;
+            background: #00ff00 !important;
+            color: #000000 !important;
             text-shadow: none !important;
-            border: 2px solid #cc4a1a !important;
-            box-shadow: inset 2px 2px 0px #ff6b35, inset -2px -2px 0px #cc4a1a !important;
+            border: 2px solid #008800 !important;
+            box-shadow: inset 2px 2px 0px #00ff00, inset -2px -2px 0px #008800 !important;
         }
 
         /* Pixel Art Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%) !important;
-            border: 4px solid #00ff41 !important;
+            background: linear-gradient(135deg, #000000 0%, #001100 50%, #000000 100%) !important;
+            border: 4px solid #00ff00 !important;
             border-radius: 0 !important;
             box-shadow: 
-                0 0 0 2px #008f11,
-                0 8px 0 #008f11,
+                0 0 0 2px #008800,
+                0 8px 0 #008800,
                 0 16px 0 #006600 !important;
             position: relative;
         }
@@ -211,7 +126,7 @@
             left: -4px;
             right: -4px;
             bottom: -4px;
-            background: linear-gradient(45deg, #ff6b35, #00ff41, #ff6b35, #00ff41);
+            background: linear-gradient(45deg, #ff0000, #00ff00, #ff0000, #00ff00);
             background-size: 20px 20px;
             z-index: -1;
             animation: pixelBorder 2s linear infinite;
@@ -223,9 +138,9 @@
         }
 
         .hero h1 {
-            color: #00ff41 !important;
+            color: #00ff00 !important;
             text-shadow: 
-                3px 3px 0px #008f11,
+                3px 3px 0px #008800,
                 6px 6px 0px #006600,
                 9px 9px 0px #004400 !important;
             font-size: 2.5rem !important;
@@ -233,97 +148,100 @@
         }
 
         .hero p {
-            color: #ff6b35 !important;
-            text-shadow: 2px 2px 0px #cc4a1a !important;
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
             font-size: 1rem !important;
         }
 
         /* Pixel Art Buttons */
         .btn {
             font-family: 'Press Start 2P', monospace !important;
-            border: 3px solid #00ff41 !important;
+            border: 3px solid #00ff00 !important;
             border-radius: 0 !important;
-            background: #0d1117 !important;
-            color: #00ff41 !important;
-            text-shadow: 1px 1px 0px #008f11 !important;
+            background: #000000 !important;
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
             padding: 12px 24px !important;
             transition: all 0.1s ease !important;
             position: relative;
             box-shadow: 
-                0 4px 0 #008f11,
+                0 4px 0 #008800,
                 0 8px 0 #006600 !important;
         }
 
         .btn:hover {
-            background: #00ff41 !important;
-            color: #0d1117 !important;
+            background: #ff0000 !important;
+            color: #000000 !important;
             text-shadow: none !important;
+            border-color: #cc0000 !important;
             transform: translateY(2px) !important;
             box-shadow: 
-                0 2px 0 #008f11,
-                0 4px 0 #006600 !important;
+                0 2px 0 #cc0000,
+                0 4px 0 #aa0000 !important;
         }
 
         .btn:active {
             transform: translateY(4px) !important;
             box-shadow: 
-                0 0 0 #008f11,
-                0 0 0 #006600 !important;
+                0 0 0 #cc0000,
+                0 0 0 #aa0000 !important;
         }
 
         .btn-primary {
-            background: #ff6b35 !important;
-            color: #0d1117 !important;
+            background: #00ff00 !important;
+            color: #000000 !important;
             text-shadow: none !important;
-            border-color: #cc4a1a !important;
+            border-color: #008800 !important;
             box-shadow: 
-                0 4px 0 #cc4a1a,
-                0 8px 0 #aa3a0a !important;
+                0 4px 0 #008800,
+                0 8px 0 #006600 !important;
         }
 
         .btn-primary:hover {
-            background: #ff8c5a !important;
+            background: #ff0000 !important;
+            border-color: #cc0000 !important;
             transform: translateY(2px) !important;
             box-shadow: 
-                0 2px 0 #cc4a1a,
-                0 4px 0 #aa3a0a !important;
+                0 2px 0 #cc0000,
+                0 4px 0 #aa0000 !important;
         }
 
         /* Pixel Art Cards */
         .product-card, .feature-card, .stats-card {
-            background: #0d1117 !important;
-            border: 3px solid #00ff41 !important;
+            background: #000000 !important;
+            border: 3px solid #00ff00 !important;
             border-radius: 0 !important;
             box-shadow: 
-                0 4px 0 #008f11,
+                0 4px 0 #008800,
                 0 8px 0 #006600 !important;
             transition: all 0.1s ease !important;
         }
 
         .product-card:hover, .feature-card:hover, .stats-card:hover {
             transform: translateY(-4px) !important;
+            border-color: #ff0000 !important;
             box-shadow: 
-                0 8px 0 #008f11,
-                0 12px 0 #006600 !important;
+                0 8px 0 #cc0000,
+                0 12px 0 #aa0000 !important;
         }
 
         .product-card h3, .feature-card h3, .stats-card h3 {
-            color: #00ff41 !important;
-            text-shadow: 2px 2px 0px #008f11 !important;
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
         }
 
         .product-card p, .feature-card p, .stats-card p {
-            color: #ff6b35 !important;
-            text-shadow: 1px 1px 0px #cc4a1a !important;
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
         }
 
         /* Pixel Art Sections */
         .section-title {
-            color: #00ff41 !important;
+            color: #00ff00 !important;
             text-shadow: 
-                3px 3px 0px #008f11,
+                3px 3px 0px #008800,
                 6px 6px 0px #006600 !important;
-            border-bottom: 4px solid #00ff41 !important;
+            border-bottom: 4px solid #00ff00 !important;
             padding-bottom: 10px !important;
             position: relative;
         }
@@ -335,85 +253,86 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: #ff6b35;
-            box-shadow: 0 4px 0 #cc4a1a;
+            background: #ff0000;
+            box-shadow: 0 4px 0 #cc0000;
         }
 
         /* Pixel Art Footer */
         .footer {
-            background: #0d1117 !important;
-            border-top: 4px solid #00ff41 !important;
+            background: #000000 !important;
+            border-top: 4px solid #00ff00 !important;
             box-shadow: 
-                0 -4px 0 #008f11,
+                0 -4px 0 #008800,
                 0 -8px 0 #006600 !important;
         }
 
         .footer h3 {
-            color: #00ff41 !important;
-            text-shadow: 2px 2px 0px #008f11 !important;
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
         }
 
         .footer p, .footer li {
-            color: #ff6b35 !important;
-            text-shadow: 1px 1px 0px #cc4a1a !important;
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
         }
 
         .footer a {
-            color: #00ff41 !important;
-            text-shadow: 1px 1px 0px #008f11 !important;
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
             transition: all 0.1s ease !important;
         }
 
         .footer a:hover {
-            color: #ff6b35 !important;
-            text-shadow: 1px 1px 0px #cc4a1a !important;
+            color: #ff0000 !important;
+            text-shadow: 1px 1px 0px #cc0000 !important;
         }
 
         /* Pixel Art Social Links */
         .social-links a {
-            background: #0d1117 !important;
-            border: 2px solid #00ff41 !important;
+            background: #000000 !important;
+            border: 2px solid #00ff00 !important;
             border-radius: 0 !important;
-            color: #00ff41 !important;
+            color: #00ff00 !important;
             transition: all 0.1s ease !important;
-            box-shadow: 0 2px 0 #008f11 !important;
+            box-shadow: 0 2px 0 #008800 !important;
         }
 
         .social-links a:hover {
-            background: #00ff41 !important;
-            color: #0d1117 !important;
+            background: #ff0000 !important;
+            color: #000000 !important;
+            border-color: #cc0000 !important;
             transform: translateY(2px) !important;
-            box-shadow: 0 0 0 #008f11 !important;
+            box-shadow: 0 0 0 #cc0000 !important;
         }
 
         /* Pixel Art Form Elements */
         input, textarea, select {
-            background: #0d1117 !important;
-            border: 2px solid #00ff41 !important;
+            background: #000000 !important;
+            border: 2px solid #00ff00 !important;
             border-radius: 0 !important;
-            color: #00ff41 !important;
+            color: #00ff00 !important;
             font-family: 'Press Start 2P', monospace !important;
             padding: 8px 12px !important;
         }
 
         input:focus, textarea:focus, select:focus {
             outline: none !important;
-            border-color: #ff6b35 !important;
-            box-shadow: 0 0 0 2px #cc4a1a !important;
+            border-color: #ff0000 !important;
+            box-shadow: 0 0 0 2px #cc0000 !important;
         }
 
         /* Pixel Art Animations */
         @keyframes pixelGlow {
             0%, 100% { 
                 text-shadow: 
-                    2px 2px 0px #008f11,
-                    0 0 10px #00ff41;
+                    2px 2px 0px #008800,
+                    0 0 10px #00ff00;
             }
             50% { 
                 text-shadow: 
-                    2px 2px 0px #008f11,
-                    0 0 20px #00ff41,
-                    0 0 30px #00ff41;
+                    2px 2px 0px #008800,
+                    0 0 20px #00ff00,
+                    0 0 30px #00ff00;
             }
         }
 
@@ -427,18 +346,276 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #0d1117;
-            border: 2px solid #00ff41;
+            background: #000000;
+            border: 2px solid #00ff00;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #00ff41;
-            border: 2px solid #008f11;
+            background: #00ff00;
+            border: 2px solid #008800;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #ff6b35;
-            border-color: #cc4a1a;
+            background: #ff0000;
+            border-color: #cc0000;
+        }
+
+        /* Additional Theme Elements */
+        .hero-container, .hero-content, .hero-image {
+            background: transparent !important;
+        }
+
+        /* Ensure hero-image and idle-gif-container have no borders */
+        .hero-image, .hero-image * {
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .hero-title, .hero-subtitle {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+        }
+
+        .highlight {
+            color: #ff0000 !important;
+            text-shadow: 2px 2px 0px #cc0000 !important;
+        }
+
+        /* Idle GIF Styling */
+        .idle-gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            transition: all 0.3s ease !important;
+            position: relative;
+            overflow: hidden;
+            outline: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Override any inherited pixel art borders for idle GIF */
+        .hero-image .idle-gif-container,
+        .hero-image .idle-gif-container *,
+        .idle-gif-container,
+        .idle-gif-container * {
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+            background: transparent !important;
+        }
+
+        .idle-gif-container:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            outline: none !important;
+        }
+
+        .idle-gif {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            max-height: 400px;
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            filter: drop-shadow(0 0 20px #00ff00);
+            transition: all 0.3s ease !important;
+        }
+
+        .idle-gif:hover {
+            filter: drop-shadow(0 0 30px #00ff00) drop-shadow(0 0 10px #ff0000);
+            transform: scale(1.02);
+        }
+
+        .section-title, .cta-description {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+        }
+
+        .container {
+            background: transparent !important;
+        }
+
+        /* Video Section Pixel Art Theme */
+        .video-showcase {
+            background: linear-gradient(135deg, #000000 0%, #001100 50%, #000000 100%) !important;
+            border: 4px solid #00ff00 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 0 0 2px #008800,
+                0 8px 0 #008800,
+                0 16px 0 #006600 !important;
+            position: relative;
+        }
+
+        .video-showcase::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #ff0000, #00ff00, #ff0000, #00ff00);
+            background-size: 20px 20px;
+            z-index: -1;
+            animation: pixelBorder 2s linear infinite;
+        }
+
+        .video-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-description {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+            font-family: 'Press Start 2P', monospace !important;
+            font-size: 0.9rem !important;
+        }
+
+        .gpu-gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            transition: all 0.3s ease !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpu-gif-container:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .gpu-gif {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            filter: none !important;
+            transition: none !important;
+            background: transparent !important;
+            border: none !important;
+        }
+
+        .gpu-gif:hover {
+            filter: none !important;
+            transform: none !important;
+        }
+
+        .play-button {
+            background: #00ff00 !important;
+            border: 3px solid #008800 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 4px 0 #008800,
+                0 8px 0 #006600 !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .play-button:hover {
+            background: #ff0000 !important;
+            border-color: #cc0000 !important;
+            transform: translateY(2px) !important;
+            box-shadow: 
+                0 2px 0 #cc0000,
+                0 4px 0 #aa0000 !important;
+        }
+
+        .play-button:active {
+            transform: translateY(4px) !important;
+            box-shadow: 
+                0 0 0 #cc0000,
+                0 0 0 #aa0000 !important;
+        }
+
+        /* CTA Section Pixel Art Theme */
+        .cta-section {
+            background: linear-gradient(135deg, #000000 0%, #001100 25%, #002200 50%, #001100 75%, #000000 100%) !important;
+            border: 4px solid #00ff00 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 0 0 2px #008800,
+                0 8px 0 #008800,
+                0 16px 0 #006600 !important;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #ff0000, #00ff00, #ff0000, #00ff00);
+            background-size: 20px 20px;
+            z-index: -1;
+            animation: pixelBorder 2s linear infinite;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            gap: 20px !important;
+        }
+
+        .cta-buttons .btn {
+            min-width: 200px !important;
+            font-family: 'Press Start 2P', monospace !important;
+            border: 3px solid #00ff00 !important;
+            border-radius: 0 !important;
+            background: #000000 !important;
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+            padding: 12px 24px !important;
+            transition: all 0.1s ease !important;
+            position: relative;
+            box-shadow: 
+                0 4px 0 #008800,
+                0 8px 0 #006600 !important;
+        }
+
+        .cta-buttons .btn:hover {
+            background: #ff0000 !important;
+            color: #000000 !important;
+            text-shadow: none !important;
+            border-color: #cc0000 !important;
+            transform: translateY(2px) !important;
+            box-shadow: 
+                0 2px 0 #cc0000,
+                0 4px 0 #aa0000 !important;
+        }
+
+        .cta-buttons .btn:active {
+            transform: translateY(4px) !important;
+            box-shadow: 
+                0 0 0 #cc0000,
+                0 0 0 #aa0000 !important;
         }
 
         /* Responsive Pixel Art */
@@ -456,10 +633,162 @@
                 padding: 6px 12px !important;
                 font-size: 0.7rem !important;
             }
+            
+            .loading-gif {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+                bottom: 80px;
+                padding: 15px 30px;
+            }
+            
+            .idle-gif {
+                max-width: 300px;
+                max-height: 250px;
+            }
+            
+            .gpu-gif {
+                max-width: 100%;
+                max-height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .loading-text {
+                font-size: 0.8rem;
+                bottom: 60px;
+                padding: 10px 20px;
+            }
+            
+            .idle-gif {
+                max-width: 250px;
+                max-height: 200px;
+            }
+            
+            .gpu-gif {
+                max-width: 100%;
+                max-height: 250px;
+            }
+        }
+
+        /* ===== LOADING SCREEN STYLES ===== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+                width: 100%;
+            height: 100%;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-screen.hidden {
+            display: none;
+        }
+
+        .loading-gif {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            filter: drop-shadow(0 0 20px #00ff00);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .loading-text {
+            color: #00ff00;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 0px #008800;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { 
+                opacity: 1;
+                text-shadow: 2px 2px 0px #008800, 0 0 10px #00ff00;
+            }
+            50% { 
+                opacity: 0.7;
+                text-shadow: 2px 2px 0px #008800, 0 0 20px #00ff00;
+            }
+        }
+
+        .loading-dots {
+            color: #ff0000;
+            animation: loadingDots 1s infinite;
+        }
+
+        @keyframes loadingDots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+
+        .loading-dots::after {
+            content: '';
+            animation: loadingDots 1s infinite;
+        }
+
+        /* Page transition overlay */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 99998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <img src="warhammer-stance.gif" alt="Loading..." class="loading-gif">
+        <div class="loading-text">LOADING<span class="loading-dots"></span></div>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -494,19 +823,12 @@
 
     <!-- Space Marine Helmet -->
     <div class="space-marine-helmet" id="spaceMarineHelmet">
-        <img src="20.png" alt="Space Marine Helmet" />
+        <img src="20.gif" alt="Space Marine Helmet" />
     </div>
 
-    <!-- Sidebar Quote -->
-    <div class="sidebar-quote">
-        <img src="main-qimg-bc5c7a4cbfb523ee2aa41be274f15328-lq.jpg" alt="Inspirational Quote">
-    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="floating-quote hero-quote">
-            <img src="c4fe031f437f2cb7db3a556fded7f976.jpg" alt="Inspirational Quote">
-        </div>
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">Next-Gen <span class="highlight">Graphics</span></h1>
@@ -517,53 +839,8 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hardware-showcase">
-                    <div class="hardware-grid">
-                        <div class="hardware-item cpu-item">
-                            <div class="hardware-emoji">⚡</div>
-                            <div class="hardware-label">CPU</div>
-                        </div>
-                        <div class="hardware-item gpu-item">
-                            <div class="hardware-emoji">🎮</div>
-                            <div class="hardware-label">GPU</div>
-                        </div>
-                        <div class="hardware-item ram-item">
-                            <div class="hardware-emoji">🧠</div>
-                            <div class="hardware-label">RAM</div>
-                        </div>
-                        <div class="hardware-item storage-item">
-                            <div class="hardware-emoji">💾</div>
-                            <div class="hardware-label">SSD</div>
-                        </div>
-                        <div class="hardware-item motherboard-item">
-                            <div class="hardware-emoji">🔧</div>
-                            <div class="hardware-label">MB</div>
-                        </div>
-                        <div class="hardware-item cooling-item">
-                            <div class="hardware-emoji">❄️</div>
-                            <div class="hardware-label">COOL</div>
-                        </div>
-                    </div>
-                    <div class="performance-bars">
-                        <div class="performance-bar cpu-bar">
-                            <div class="bar-fill"></div>
-                            <span class="bar-label">CPU: 95%</span>
-                        </div>
-                        <div class="performance-bar gpu-bar">
-                            <div class="bar-fill"></div>
-                            <span class="bar-label">GPU: 88%</span>
-                        </div>
-                        <div class="performance-bar ram-bar">
-                            <div class="bar-fill"></div>
-                            <span class="bar-label">RAM: 72%</span>
-                        </div>
-                    </div>
-                    <div class="data-streams">
-                        <div class="data-stream">📊</div>
-                        <div class="data-stream">📈</div>
-                        <div class="data-stream">📉</div>
-                        <div class="data-stream">📊</div>
-                    </div>
+                <div class="idle-gif-container">
+                    <img src="idle.gif" alt="Hardware Animation" class="idle-gif">
                 </div>
             </div>
         </div>
@@ -574,9 +851,9 @@
         <div class="container">
             <div class="video-content">
                 <h2 class="section-title">Experience the Power</h2>
-                <p class="video-description">Watch our latest graphics cards in action, delivering stunning performance and breathtaking visuals</p>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/GZfFPI8LJrc?si=AlsEv7CLWZt4wRuh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p class="video-description">Witness our latest graphics cards in action, delivering stunning performance and breathtaking visuals</p>
+                <div class="gpu-gif-container">
+                    <img src="gpu.gif" alt="GPU Performance Showcase" class="gpu-gif">
                 </div>
             </div>
         </div>
@@ -585,9 +862,6 @@
 
     <!-- Call to Action Section -->
     <section class="cta-section">
-        <div class="floating-quote cta-quote">
-            <img src="d99f3832c5c67957740fa6cc24939dec.jpg" alt="Inspirational Quote">
-        </div>
         <div class="container">
             <h2 class="section-title">Explore Our Premium Hardware</h2>
             <p class="cta-description">Discover our extensive collection of graphics cards and processors</p>
@@ -647,7 +921,119 @@
     </footer>
 
     <script src="script.js"></script>
-<script src="https://genieai.zlz.me/widget/loader.js" data-key="gw_193cb7310ac1f204380bfcc07ebb7098" data-api-url="https://genieai.zlz.me"></script>
+    <script src="https://genieai.zlz.me/widget/loader.js" data-key="gw_193cb7310ac1f204380bfcc07ebb7098" data-api-url="https://genieai.zlz.me"></script>
+    
+    <script>
+        // Loading Screen Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const pageTransition = document.getElementById('pageTransition');
+            
+            // Show loading screen on page load
+            function showLoadingScreen() {
+                loadingScreen.style.display = 'flex';
+                loadingScreen.classList.remove('fade-out', 'hidden');
+                loadingScreen.style.opacity = '1';
+            }
+            
+            // Hide loading screen with fade out
+            function hideLoadingScreen() {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 500);
+            }
+            
+            // Show page transition overlay
+            function showPageTransition() {
+                pageTransition.classList.add('active');
+            }
+            
+            // Hide page transition overlay
+            function hidePageTransition() {
+                pageTransition.classList.remove('active');
+            }
+            
+            // Initial page load - show loading screen for 3 seconds
+            setTimeout(() => {
+                hideLoadingScreen();
+            }, 3000);
+            
+            // Handle navigation links for page transitions
+            const navLinks = document.querySelectorAll('a[href$=".html"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Don't show transition for same page
+                    if (this.href === window.location.href) {
+                        return;
+                    }
+                    
+                    e.preventDefault();
+                    const targetUrl = this.href;
+                    
+                    // Show transition overlay
+                    showPageTransition();
+                    
+                    // Show loading screen after a brief delay
+                    setTimeout(() => {
+                        showLoadingScreen();
+                        
+                        // Navigate to new page after loading screen is visible
+                        setTimeout(() => {
+                            window.location.href = targetUrl;
+                        }, 100);
+                    }, 300);
+                });
+            });
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('beforeunload', function() {
+                showPageTransition();
+            });
+            
+            // Handle page visibility changes (tab switching)
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    // Page is hidden, could show transition
+                } else {
+                    // Page is visible again
+                    hidePageTransition();
+                }
+            });
+            
+            // Preload the GIF for smoother experience
+            const gif = new Image();
+            gif.src = 'warhammer-stance.gif';
+            
+            // Add loading states to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.href && this.href.includes('.html')) {
+                        // This is a navigation button, show transition
+                        showPageTransition();
+                    }
+                });
+            });
+        });
+        
+        // Global function to show loading screen (can be called from other scripts)
+        window.showLoadingScreen = function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.style.display = 'flex';
+            loadingScreen.classList.remove('fade-out', 'hidden');
+            loadingScreen.style.opacity = '1';
+        };
+        
+        // Global function to hide loading screen
+        window.hideLoadingScreen = function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 500);
+        };
+    </script>
 </body>
 </html> 
 </html> 

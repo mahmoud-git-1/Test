@@ -8,8 +8,493 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Pixel Art Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* ===== PIXEL ART STYLE OVERRIDE ===== */
+        /* Pixel Art Base Styles */
+        * {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        body {
+            background: #000000 !important;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #001100 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #002200 0%, transparent 50%),
+                linear-gradient(45deg, #000000 0%, #001100 50%, #002200 100%);
+            font-family: 'Press Start 2P', monospace !important;
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800;
+            line-height: 1.6;
+        }
+
+        /* Pixel Art Navigation */
+        .navbar {
+            background: #000000 !important;
+            border-bottom: 4px solid #00ff00 !important;
+            box-shadow: 0 4px 0 #008800, 0 8px 0 #006600 !important;
+        }
+
+        .nav-container {
+            background: linear-gradient(90deg, #000000 0%, #001100 50%, #000000 100%) !important;
+            border: 2px solid #00ff00 !important;
+            border-radius: 0 !important;
+        }
+
+        .nav-logo {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+        }
+
+        .nav-logo i {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+        }
+
+        .nav-link {
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+            border: 2px solid transparent !important;
+            padding: 8px 16px !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .nav-link:hover {
+            background: #ff0000 !important;
+            color: #000000 !important;
+            text-shadow: none !important;
+            border: 2px solid #cc0000 !important;
+            box-shadow: inset 2px 2px 0px #ff0000, inset -2px -2px 0px #cc0000 !important;
+        }
+
+        .nav-link.active {
+            background: #00ff00 !important;
+            color: #000000 !important;
+            text-shadow: none !important;
+            border: 2px solid #008800 !important;
+            box-shadow: inset 2px 2px 0px #00ff00, inset -2px -2px 0px #008800 !important;
+        }
+
+        /* Pixel Art Sections */
+        .section-title {
+            color: #00ff00 !important;
+            text-shadow: 
+                3px 3px 0px #008800,
+                6px 6px 0px #006600 !important;
+            border-bottom: 4px solid #00ff00 !important;
+            padding-bottom: 10px !important;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #ff0000;
+            box-shadow: 0 4px 0 #cc0000;
+        }
+
+        /* Pixel Art Buttons */
+        .btn {
+            font-family: 'Press Start 2P', monospace !important;
+            border: 3px solid #00ff00 !important;
+            border-radius: 0 !important;
+            background: #000000 !important;
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+            padding: 12px 24px !important;
+            transition: all 0.1s ease !important;
+            position: relative;
+            box-shadow: 
+                0 4px 0 #008800,
+                0 8px 0 #006600 !important;
+        }
+
+        .btn:hover {
+            background: #ff0000 !important;
+            color: #000000 !important;
+            text-shadow: none !important;
+            border-color: #cc0000 !important;
+            transform: translateY(2px) !important;
+            box-shadow: 
+                0 2px 0 #cc0000,
+                0 4px 0 #aa0000 !important;
+        }
+
+        .btn:active {
+            transform: translateY(4px) !important;
+            box-shadow: 
+                0 0 0 #cc0000,
+                0 0 0 #aa0000 !important;
+        }
+
+        .btn-primary {
+            background: #00ff00 !important;
+            color: #000000 !important;
+            text-shadow: none !important;
+            border-color: #008800 !important;
+            box-shadow: 
+                0 4px 0 #008800,
+                0 8px 0 #006600 !important;
+        }
+
+        .btn-primary:hover {
+            background: #ff0000 !important;
+            border-color: #cc0000 !important;
+            transform: translateY(2px) !important;
+            box-shadow: 
+                0 2px 0 #cc0000,
+                0 4px 0 #aa0000 !important;
+        }
+
+        /* Pixel Art Cards */
+        .product-card, .feature-card, .stats-card {
+            background: #000000 !important;
+            border: 3px solid #00ff00 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 4px 0 #008800,
+                0 8px 0 #006600 !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .product-card:hover, .feature-card:hover, .stats-card:hover {
+            transform: translateY(-4px) !important;
+            border-color: #ff0000 !important;
+            box-shadow: 
+                0 8px 0 #cc0000,
+                0 12px 0 #aa0000 !important;
+        }
+
+        .product-card h3, .feature-card h3, .stats-card h3 {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+        }
+
+        .product-card p, .feature-card p, .stats-card p {
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+        }
+
+        /* Pixel Art Footer */
+        .footer {
+            background: #000000 !important;
+            border-top: 4px solid #00ff00 !important;
+            box-shadow: 
+                0 -4px 0 #008800,
+                0 -8px 0 #006600 !important;
+        }
+
+        .footer h3 {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+        }
+
+        .footer p, .footer li {
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+        }
+
+        .footer a {
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .footer a:hover {
+            color: #ff0000 !important;
+            text-shadow: 1px 1px 0px #cc0000 !important;
+        }
+
+        /* Pixel Art Social Links */
+        .social-links a {
+            background: #000000 !important;
+            border: 2px solid #00ff00 !important;
+            border-radius: 0 !important;
+            color: #00ff00 !important;
+            transition: all 0.1s ease !important;
+            box-shadow: 0 2px 0 #008800 !important;
+        }
+
+        .social-links a:hover {
+            background: #ff0000 !important;
+            color: #000000 !important;
+            border-color: #cc0000 !important;
+            transform: translateY(2px) !important;
+            box-shadow: 0 0 0 #cc0000 !important;
+        }
+
+        /* Pixel Art Form Elements */
+        input, textarea, select {
+            background: #000000 !important;
+            border: 2px solid #00ff00 !important;
+            border-radius: 0 !important;
+            color: #00ff00 !important;
+            font-family: 'Press Start 2P', monospace !important;
+            padding: 8px 12px !important;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none !important;
+            border-color: #ff0000 !important;
+            box-shadow: 0 0 0 2px #cc0000 !important;
+        }
+
+        /* Pixel Art Scrollbar */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+            border: 2px solid #00ff00;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff00;
+            border: 2px solid #008800;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff0000;
+            border-color: #cc0000;
+        }
+
+        .container {
+            background: transparent !important;
+        }
+
+        /* Products Section Pixel Art Theme */
+        .products {
+            background: linear-gradient(135deg, #000000 0%, #001100 25%, #002200 50%, #001100 75%, #000000 100%) !important;
+            border: 4px solid #00ff00 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 0 0 2px #008800,
+                0 8px 0 #008800,
+                0 16px 0 #006600 !important;
+            position: relative;
+        }
+
+        .products::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #ff0000, #00ff00, #ff0000, #00ff00);
+            background-size: 20px 20px;
+            z-index: -1;
+            animation: pixelBorder 2s linear infinite;
+        }
+
+        @keyframes pixelBorder {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
+        }
+
+        .category-filters {
+            background: #000000 !important;
+            border: 3px solid #00ff00 !important;
+            border-radius: 0 !important;
+            box-shadow: 
+                0 4px 0 #008800,
+                0 8px 0 #006600 !important;
+        }
+
+        .filter-btn {
+            background: #000000 !important;
+            border: 2px solid #00ff00 !important;
+            border-radius: 0 !important;
+            color: #00ff00 !important;
+            font-family: 'Press Start 2P', monospace !important;
+            transition: all 0.1s ease !important;
+        }
+
+        .filter-btn:hover {
+            background: #ff0000 !important;
+            color: #000000 !important;
+            border-color: #cc0000 !important;
+        }
+
+        .filter-btn.active {
+            background: #00ff00 !important;
+            color: #000000 !important;
+            border-color: #008800 !important;
+        }
+
+        .product-info h3 {
+            color: #00ff00 !important;
+            text-shadow: 2px 2px 0px #008800 !important;
+            font-family: 'Press Start 2P', monospace !important;
+        }
+
+        .product-description {
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+            font-family: 'Press Start 2P', monospace !important;
+        }
+
+        .spec {
+            background: #000000 !important;
+            border: 2px solid #00ff00 !important;
+            border-radius: 0 !important;
+            color: #00ff00 !important;
+            font-family: 'Press Start 2P', monospace !important;
+        }
+
+        .price {
+            color: #ff0000 !important;
+            text-shadow: 2px 2px 0px #cc0000 !important;
+            font-family: 'Press Start 2P', monospace !important;
+        }
+
+        .detail-label {
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+            font-family: 'Press Start 2P', monospace !important;
+        }
+
+        .detail-value {
+            color: #00ff00 !important;
+            text-shadow: 1px 1px 0px #008800 !important;
+            font-family: 'Press Start 2P', monospace !important;
+        }
+
+        /* Responsive Pixel Art */
+        @media (max-width: 768px) {
+            .btn {
+                padding: 8px 16px !important;
+                font-size: 0.8rem !important;
+            }
+            
+            .nav-link {
+                padding: 6px 12px !important;
+                font-size: 0.7rem !important;
+            }
+        }
+
+        /* ===== LOADING SCREEN STYLES ===== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-screen.hidden {
+            display: none;
+        }
+
+        .loading-gif {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            filter: drop-shadow(0 0 20px #00ff00);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .loading-text {
+            color: #00ff00;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 0px #008800;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { 
+                opacity: 1;
+                text-shadow: 2px 2px 0px #008800, 0 0 10px #00ff00;
+            }
+            50% { 
+                opacity: 0.7;
+                text-shadow: 2px 2px 0px #008800, 0 0 20px #00ff00;
+            }
+        }
+
+        .loading-dots {
+            color: #ff0000;
+            animation: loadingDots 1s infinite;
+        }
+
+        @keyframes loadingDots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+
+        .loading-dots::after {
+            content: '';
+            animation: loadingDots 1s infinite;
+        }
+
+        /* Page transition overlay */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 99998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <img src="warhammer-stance.gif" alt="Loading..." class="loading-gif">
+        <div class="loading-text">LOADING<span class="loading-dots"></span></div>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -1268,5 +1753,117 @@
 
     <script src="script.js"></script>
 <script src="https://genieai.zlz.me/widget/loader.js" data-key="gw_193cb7310ac1f204380bfcc07ebb7098" data-api-url="https://genieai.zlz.me"></script>
+
+<script>
+    // Loading Screen Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        const pageTransition = document.getElementById('pageTransition');
+        
+        // Show loading screen on page load
+        function showLoadingScreen() {
+            loadingScreen.style.display = 'flex';
+            loadingScreen.classList.remove('fade-out', 'hidden');
+            loadingScreen.style.opacity = '1';
+        }
+        
+        // Hide loading screen with fade out
+        function hideLoadingScreen() {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 500);
+        }
+        
+        // Show page transition overlay
+        function showPageTransition() {
+            pageTransition.classList.add('active');
+        }
+        
+        // Hide page transition overlay
+        function hidePageTransition() {
+            pageTransition.classList.remove('active');
+        }
+        
+        // Initial page load - show loading screen for 3 seconds
+        setTimeout(() => {
+            hideLoadingScreen();
+        }, 3000);
+        
+        // Handle navigation links for page transitions
+        const navLinks = document.querySelectorAll('a[href$=".html"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Don't show transition for same page
+                if (this.href === window.location.href) {
+                    return;
+                }
+                
+                e.preventDefault();
+                const targetUrl = this.href;
+                
+                // Show transition overlay
+                showPageTransition();
+                
+                // Show loading screen after a brief delay
+                setTimeout(() => {
+                    showLoadingScreen();
+                    
+                    // Navigate to new page after loading screen is visible
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 100);
+                }, 300);
+            });
+        });
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('beforeunload', function() {
+            showPageTransition();
+        });
+        
+        // Handle page visibility changes (tab switching)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Page is hidden, could show transition
+            } else {
+                // Page is visible again
+                hidePageTransition();
+            }
+        });
+        
+        // Preload the GIF for smoother experience
+        const gif = new Image();
+        gif.src = 'warhammer-stance.gif';
+        
+        // Add loading states to buttons
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.href && this.href.includes('.html')) {
+                    // This is a navigation button, show transition
+                    showPageTransition();
+                }
+            });
+        });
+    });
+    
+    // Global function to show loading screen (can be called from other scripts)
+    window.showLoadingScreen = function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.style.display = 'flex';
+        loadingScreen.classList.remove('fade-out', 'hidden');
+        loadingScreen.style.opacity = '1';
+    };
+    
+    // Global function to hide loading screen
+    window.hideLoadingScreen = function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.classList.add('fade-out');
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+        }, 500);
+    };
+</script>
 </body>
 </html> 
